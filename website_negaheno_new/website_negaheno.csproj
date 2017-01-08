@@ -160,6 +160,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ArtGalleryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
     <Compile Include="Areas\EnglishWebsite\EnglishWebsiteAreaRegistration.cs" />
     <Compile Include="Areas\Website\WebsiteAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -271,6 +272,7 @@
     <Content Include="Areas\Website\Views\web.config" />
     <Content Include="Areas\EnglishWebsite\Views\web.config" />
     <Content Include="Areas\Admin\Views\ArtGallery\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Profile\Login.cshtml" />
     <None Include="Properties\PublishProfiles\Zhinous.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="images\logo.jpg" />
@@ -336,6 +338,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\ViewModels\" />
     <Folder Include="Areas\EnglishWebsite\Controllers\" />
     <Folder Include="Areas\EnglishWebsite\Models\" />
     <Folder Include="Areas\EnglishWebsite\Views\Shared\" />

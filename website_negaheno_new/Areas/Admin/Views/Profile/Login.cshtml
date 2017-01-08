@@ -1,0 +1,53 @@
+﻿@model website_negaheno.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Areas/Website/Views/Shared/_Layout.cshtml";
+}
+
+<div class="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4 wow slideInUp ">
+                <div class="login-header">
+                    login to Management
+                </div>
+                <div id="login_container">
+                    @using (Ajax.BeginForm("Login", "Account", new { area = "Account" }, new AjaxOptions
+                    {
+                        HttpMethod = "Post",
+                        InsertionMode = InsertionMode.ReplaceWith,
+                        UpdateTargetId = "login_container",
+                        OnSuccess = "LoginSuccess"
+                    }))
+                    {
+                        @Html.AntiForgeryToken()
+    <div class="col-xs-12">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+   </div>
+    <div class="col-xs-12 nopadding">
+        <div class="col-xs-3 topbuffer-10">
+            @Html.LabelFor(m => m.Email, new { @class="form-label"})
+        </div>
+        <div class="col-xs-9">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+    </div>
+    <div class="col-xs-12 topbuffer-10 nopadding">
+        <div class="col-xs-3 topbuffer-10">
+            @Html.LabelFor(m => m.Password, new { @class = "form-label" })
+        </div>
+        <div class="col-xs-9">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+    </div>
+            <div class="col-xs-offset-4 col-xs-5 topbuffer-20">
+                <input type="submit" value="Login" class="btn btn-login" />
+            </div>
+                    }
+    </div>
+            </div>
+        </div>
+    </div>
+</div>

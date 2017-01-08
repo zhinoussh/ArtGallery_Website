@@ -16,22 +16,23 @@
         <div class="top-bar">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6 col-xs-4">
+                    <div class="col-sm-6 col-xs-8">
                         <div class="top-number"><i class="fa fa-phone-square fa-2x"></i> <strong>0913 186 4105</strong></div>
                     </div>
-                    <div class="col-sm-6 col-xs-8">
+                    <div class="col-sm-6 col-xs-4">
                         <div class="social">
                             <ul class="social-share">
                                 <li><a data-toggle="tooltip" title="Facebook" href="http://www.facebook.com/negaheno.artgallery/"><i class="fa fa-facebook fa-lg"></i></a></li>
                                 <li><a data-toggle="tooltip" title="Instagram" href="http://www.instagram.com/negaheno_artgallery/"><i class="fa fa-instagram fa-lg"></i></a></li>
                                 <li><a data-toggle="tooltip" title="Telegram" href="http://telegram.me/negahenoartgallery/"><i class="fa fa-send fa-lg"></i></a></li>
+                                <li><a data-toggle="tooltip" title="Login" href="@Url.Action("Login", "Profile", new { area="Admin"})"><i class="fa fa-user-circle-o fa-lg"></i></a></li>
                             </ul>
-                            <div class="search">
+                            @*<div class="search">
                                 <form role="form">
                                     <input type="text" class="search-form" autocomplete="off" placeholder="Search">
                                     <i class="fa fa-search"></i>
                                 </form>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>
@@ -46,7 +47,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="~/images/logo.jpg" alt="logo" class="main_logo"></a>
+                    <a class="navbar-brand" href="index.html"><img src="~/images/logo.jpg" alt="logo" class="main_logo hidden-xs"></a>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-right" >
@@ -94,6 +95,8 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/indexJS")
+
     <script type="text/javascript">
         $(".nav a").on("click", function () {
             
