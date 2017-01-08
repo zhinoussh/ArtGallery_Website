@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -گالری نگاه نو</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+  
+    @RenderSection("HeadSection", false)
+
+</head>
+<body class="homepage">
+
+    <header id="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-4">
+                        <div class="top-number"><i class="fa fa-phone-square fa-2x"></i> <strong>0913 186 4105</strong></div>
+                    </div>
+                    <div class="col-sm-6 col-xs-8">
+                        <div class="social">
+                            <ul class="social-share">
+                                <li><a data-toggle="tooltip" title="Facebook" href="http://www.facebook.com/negaheno.artgallery/"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a data-toggle="tooltip" title="Instagram" href="http://www.instagram.com/negaheno_artgallery/"><i class="fa fa-instagram fa-lg"></i></a></li>
+                                <li><a data-toggle="tooltip" title="Telegram" href="http://telegram.me/negahenoartgallery/"><i class="fa fa-send fa-lg"></i></a></li>
+                            </ul>
+                            <div class="search">
+                                <form role="form">
+                                    <input type="text" class="search-form" autocomplete="off" placeholder="Search">
+                                    <i class="fa fa-search"></i>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.container-->
+        </div><!--/.top-bar-->
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="~/images/logo.jpg" alt="logo" class="main_logo"></a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right" >
+                    <ul class="nav navbar-nav" >
+                        @*<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="blog-item.html">Blog Single</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="404.html">404</a></li>
+                                <li><a href="shortcodes.html">Shortcodes</a></li>
+                            </ul>
+                        </li>*@
+                        <li><a href="/Home/Contact">تماس با ما</a></li>
+                        <li><a href="/Home/News">رویداد های مهم و جشنواره ها و مطبوعات</a></li>
+                        <li><a href="/Home/PhotoGallery">گالری تصاویر</a></li>
+                        <li><a href="/Home/Artists">آثار هنرمندان</a></li>
+                        <li><a href="/Home/About">درباره ما</a></li>
+
+                        <li class="active"><a href="/Home/Index">صفحه اصلی</a></li>
+
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+
+    </header><!--/header-->
+    @RenderBody()
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2016 تمامی حقوق این سایت برای نگارخانه نگاه نو محفوظ است
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right" style="font-family:Arial">
+                        <li><a href="/Home/Index">Home</a></li>
+                        <li><a href="/Home/About">About Us</a></li>
+                        <li><a href="/Home/Contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript">
+        $(".nav a").on("click", function () {
+            
+            $(".nav").find(".active").removeClass("active");
+            $(this).parent().addClass("active");
+        });
+
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
