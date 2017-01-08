@@ -309,7 +309,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Areas\Website\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Website\Views\Home\About.cshtml" />
     <Content Include="Areas\Website\Views\Home\Contact.cshtml" />
@@ -332,8 +331,6 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -343,6 +340,7 @@
     <Folder Include="Areas\EnglishWebsite\Models\" />
     <Folder Include="Areas\EnglishWebsite\Views\Shared\" />
     <Folder Include="Areas\Website\Models\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

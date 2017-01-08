@@ -21,7 +21,7 @@ namespace website_negaheno.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("NegaheNoConnection", throwIfV1Schema: false)
         {
         }
 
