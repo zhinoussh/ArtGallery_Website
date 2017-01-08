@@ -17,7 +17,7 @@ namespace website_negaheno
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            ). DataTokens = new RouteValueDictionary (new { area = "Website" });;
         }
     }
 }

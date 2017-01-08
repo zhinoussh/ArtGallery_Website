@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace website_negaheno.Controllers
+namespace website_negaheno.Areas.Website.Controllers
 {
     public class HomeController : Controller
     {
