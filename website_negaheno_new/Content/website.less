@@ -1,0 +1,87 @@
+﻿@loginHeader: #c52d2f;
+@WhiteGrayColor: #e8dadc;
+@bgLoginColor:#f5f1f1;
+.boldwhiteFont() {
+    color:@WhiteGrayColor;
+    font-weight: bold;
+}
+.nopadding() {
+    padding: 0;
+}
+
+
+/*Login Section*/
+.login {
+    padding:5%;
+}
+#login_container {
+    float:right;
+    width:100%;
+    border:1px solid @WhiteGrayColor;
+    background-color:@bgLoginColor;
+    border-radius:5px;
+    padding:10% 0 10% 0;
+    border-top-left-radius:0;
+    border-top-right-radius:0;
+}
+
+.login-header {
+    background-color: @loginHeader;
+    border-radius: 5px;
+    height: 50px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 4% 0 0 0;
+    text-align: center;
+    .boldwhiteFont();
+}
+
+.btn-login {
+    background-color: @loginHeader;
+    .boldwhiteFont();
+    width: 100%;
+
+    &:hover,&:focus {
+        cursor: pointer;
+        color: @WhiteGrayColor !important;
+        background-color: lighten(@loginHeader,10%);
+    }
+}
+
+.login_error ul {
+   color:red !important;
+   list-style-type:none !important;
+   .nopadding();
+}
+
+
+
+/*General*/
+@marginTop: 10px;
+
+.form-label {
+font-size:10pt;
+font-weight:normal;
+margin-top:@marginTop;
+}
+
+.topbuffer-10 {
+    margin-top:@marginTop;
+}
+.topbuffer-20 {
+    margin-top:@marginTop*2;
+}
+.topbuffer-50 {
+        margin-top:@marginTop*5;
+}
+.nopadding {
+   .nopadding();
+}
+
+/* Logo*/
+.main_logo {
+width:auto;
+height:200px;
+z-index:9;
+position:relative;
+}

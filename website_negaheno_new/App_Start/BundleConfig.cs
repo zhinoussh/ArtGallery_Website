@@ -28,7 +28,7 @@ namespace website_negaheno
                       "~/Content/font-awesome.min.css",
                       "~/Content/animate.min.css",
                       "~/Content/prettyPhoto.css",
-                      "~/Content/site.css",
+                      "~/Content/website.min.css",
                        "~/Content/main.css",
                       "~/Content/responsive.css"
                       ));
