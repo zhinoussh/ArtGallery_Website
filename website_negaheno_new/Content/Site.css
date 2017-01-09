@@ -8,13 +8,15 @@ z-index:999999;
 position:relative;
 }
 
-.text-danger {
-   font-size:9pt;
+.login_error ul {
+   color:red !important;
+   list-style-type:none !important;
+   padding:0;
 }
 
 .form-label {
 color:#525145 !important;
-font-size:11pt;
+font-size:10pt;
 }
 
 /****LOGIN******/

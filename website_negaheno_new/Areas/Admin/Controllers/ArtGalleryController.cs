@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace website_negaheno.Areas.Admin.Controllers
 {
+    [Authorize(Roles="Admin")]
     public class ArtGalleryController : Controller
     {
         // GET: Admin/ArtGallery

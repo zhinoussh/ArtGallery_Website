@@ -79,15 +79,15 @@ namespace website_negaheno.Areas.Account.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return Json(new { url = "/Admin/ArtGallery/Index" });
+                    return RedirectToAction("Index", "ArtGallery", new  { area="Admin"});
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return Json(new {status="fail" });
+                    ModelState.AddModelError("", "Username or password are incorrect");
+                    return View(model);
             }
         }
 
@@ -385,14 +385,12 @@ namespace website_negaheno.Areas.Account.Controllers
             return View(model);
         }
 
-        //
+        
         // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new { area="Website"});
         }
 
         //

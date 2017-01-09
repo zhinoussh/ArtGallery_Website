@@ -46,13 +46,13 @@ namespace website_negaheno
                         "~/js/jquery.prettyPhoto.js",
                         "~/Areas/Website/Scripts/main.js",
                         "~/Areas/Account/Scripts/login.js",
-                        "~/js/wow.min.js",
-                        "~/js/waves.js"));
+                        "~/js/wow.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/dashboardJS").Include(
                       "~/Scripts/bootstrap.min.js",
                       "~/Scripts/jquery.slimscroll.js",
-                     "~/Areas/Admin/Scripts/dashboard.js"                      
+                     "~/Areas/Admin/Scripts/dashboard.js" ,
+                        "~/js/waves.js"
                      ));
        
     

@@ -7,6 +7,7 @@ using website_negaheno.Models;
 
 namespace website_negaheno.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProfileController : Controller
     {
         // GET: Admin/Profile
@@ -15,11 +16,7 @@ namespace website_negaheno.Areas.Admin.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
+  
 
 
     }

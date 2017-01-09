@@ -187,7 +187,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Account\Scripts\login.js" />
     <Content Include="Areas\Admin\Scripts\dashboard.js" />
     <Content Include="Content\Dashboard.css" />
     <Content Include="Content\font-awesome.css" />
@@ -284,7 +283,6 @@
     <Content Include="Areas\Website\Views\web.config" />
     <Content Include="Areas\EnglishWebsite\Views\web.config" />
     <Content Include="Areas\Admin\Views\ArtGallery\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Profile\Login.cshtml" />
     <Content Include="Areas\Account\Views\web.config" />
     <None Include="Properties\PublishProfiles\Zhinous.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
@@ -351,6 +349,7 @@
     <Folder Include="Areas\Account\Views\Shared\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\ViewModels\" />
+    <Folder Include="Areas\Admin\Views\Profile\" />
     <Folder Include="Areas\EnglishWebsite\Controllers\" />
     <Folder Include="Areas\EnglishWebsite\Models\" />
     <Folder Include="Areas\EnglishWebsite\Views\Shared\" />
