@@ -25,16 +25,16 @@ font-size:11pt;
     float:right;
     width:100%;
     border:1px solid #b7b5b5;
-    background-color:#f7f19b;
+    background-color:#f5f1f1;
     border-radius:5px;
     padding:10% 0 10% 0;
     border-top-left-radius:0;
     border-top-right-radius:0;
 }
 .login-header {
- background-color:#a0381d;
+   background-color:#c52d2f;
     border-radius:5px;
-    color:#e4de89;
+    color:#e8dadc;
     height:50px;
     border-bottom-left-radius:0;
     border-bottom-right-radius:0;
@@ -43,14 +43,17 @@ font-size:11pt;
     text-align:center;
 }
 .btn-login {
-    background-color:#a0381d;
-    color:#e4de89;
+    background-color:#c52d2f;
+    color:#e8dadc;
+    font-weight:bold;
     width:100%;
 }
 
 .btn-login:hover,.btn-login:focus {
  cursor: pointer;
- color: #f5ed86 !important;
+ color: #e8dadc !important;
+    background-color:#d55052;
+
 }
 
 .topbuffer-10 {

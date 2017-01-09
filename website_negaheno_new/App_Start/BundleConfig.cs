@@ -22,9 +22,6 @@ namespace website_negaheno
                         "~/Scripts/modernizr-*"
                          ,"~/Scripts/respond.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.min.js"
-                      ));
        
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
@@ -43,16 +40,18 @@ namespace website_negaheno
                       "~/Content/waves.css"
                       ));
 
-            bundles.Add(new ScriptBundle("~/bundles/indexJS").Include(
+            bundles.Add(new ScriptBundle("~/bundles/WebsiteJS").Include(
                       "~/js/jquery.js",
+                      "~/Scripts/bootstrap.min.js",
                         "~/js/jquery.prettyPhoto.js",
-                        "~/js/main.js",
-                        "~/js/wow.min.js"));
+                        "~/Areas/Website/Scripts/main.js",
+                        "~/Areas/Account/Scripts/login.js",
+                        "~/js/wow.min.js",
+                        "~/js/waves.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/dashboardJS").Include(
                       "~/Scripts/bootstrap.min.js",
                       "~/Scripts/jquery.slimscroll.js",
-                      "~/js/waves.js",
                      "~/Areas/Admin/Scripts/dashboard.js"                      
                      ));
        

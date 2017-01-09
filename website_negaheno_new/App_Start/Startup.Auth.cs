@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using website_negaheno.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace website_negaheno
 {
@@ -63,6 +64,42 @@ namespace website_negaheno
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            InitialiseRolesandUsers();
+        }
+
+        private void InitialiseRolesandUsers()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+
+            var roleMgr = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
+            var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+
+            if (!roleMgr.RoleExists("Admin"))
+            {
+                IdentityRole role = new IdentityRole("Admin");
+                roleMgr.Create(role);
+
+                var user = new ApplicationUser()
+                {
+                    UserName = "admin",
+                    Email = "admin@negaheno.ir"
+                };
+
+                var result = userMgr.Create(user, "123456");
+
+                if (result.Succeeded)
+                {
+                    userMgr.AddToRole(user.Id, "Admin");
+                }
+            }
+
+            if (!roleMgr.RoleExists("Public"))
+            {
+                var role = new IdentityRole("Public");
+                roleMgr.Create(role);
+            }
+
         }
     }
 }
