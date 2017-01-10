@@ -169,7 +169,11 @@
     <Compile Include="Areas\Account\Controllers\AccountController.cs" />
     <Compile Include="Areas\Website\Controllers\HomeController.cs" />
     <Compile Include="Areas\Account\Controllers\ManageController.cs" />
+    <Compile Include="DataAccessLayer\DataRepository.cs" />
+    <Compile Include="DataAccessLayer\IDataRepository.cs" />
+    <Compile Include="DataAccessLayer\IServiceLayer.cs" />
     <Compile Include="DataAccessLayer\NegaheNoDB.cs" />
+    <Compile Include="DataAccessLayer\ServiceLayer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,15 +211,7 @@
     <Content Include="images\sale.png" />
     <Content Include="images\slider\bg3.jpg" />
     <Content Include="images\workshop.png" />
-    <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\html5shiv.js" />
-    <Content Include="js\jquery.isotope.min.js" />
-    <Content Include="js\jquery.js" />
-    <Content Include="js\jquery.prettyPhoto.js" />
-    <Content Include="js\main.js" />
-    <Content Include="js\respond.min.js" />
-    <Content Include="js\waves.js" />
-    <Content Include="js\wow.min.js" />
+    <Content Include="Scripts\waves.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.slimscroll.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
@@ -293,6 +289,7 @@
     <Content Include="Content\website.css.map">
       <DependentUpon>website.css</DependentUpon>
     </Content>
+    <Content Include="Areas\Website\Views\Home\test.cshtml" />
     <None Include="Properties\PublishProfiles\Zhinous.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="images\logo.jpg" />

@@ -16,24 +16,17 @@
         <div class="top-bar">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6 col-xs-8">
-                        <div class="top-number"><i class="fa fa-phone-square fa-2x"></i> <strong>0913 186 4105</strong></div>
+                    <div class="col-xs-1 phone-number"><i class="fa fa-phone-square fa-2x"></i></div>
+                    <div class=" col-sm-5 col-xs-8 nopadding">
+                        <span class="phone-number">0913 186 4105</span>
                     </div>
                     <div class="col-sm-6 col-xs-4">
-                        <div class="social">
                             <ul class="social-share">
                                 <li><a data-toggle="tooltip" title="Facebook" href="http://www.facebook.com/negaheno.artgallery/"><i class="fa fa-facebook fa-lg"></i></a></li>
                                 <li><a data-toggle="tooltip" title="Instagram" href="http://www.instagram.com/negaheno_artgallery/"><i class="fa fa-instagram fa-lg"></i></a></li>
                                 <li><a data-toggle="tooltip" title="Telegram" href="http://telegram.me/negahenoartgallery/"><i class="fa fa-send fa-lg"></i></a></li>
                                 <li><a data-toggle="tooltip" title="Manage Website" href="@Url.Action("Index", "ArtGallery", new { Area="Admin"})"><i class="fa fa-user-circle-o fa-lg"></i></a></li>
                             </ul>
-                            @*<div class="search">
-                                <form role="form">
-                                    <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                                    <i class="fa fa-search"></i>
-                                </form>
-                            </div>*@
-                        </div>
                     </div>
                 </div>
             </div><!--/.container-->
@@ -79,16 +72,17 @@
     <footer id="footer" class="midnight-blue">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2016 تمامی حقوق این سایت برای نگارخانه نگاه نو محفوظ است
-                </div>
-                <div class="col-sm-6">
-                    <ul class="pull-right" style="font-family:Arial">
-                        <li><a href="/Home/Index">Home</a></li>
-                        <li><a href="/Home/About">About Us</a></li>
-                        <li><a href="/Home/Contact">Contact Us</a></li>
+                <div class="col-sm-8">
+                    <ul class="pull-left">
+                        <li><a href="@Url.Action("Contact", "Home", new { area="Website"})">تماس با ما</a></li>
+                        <li><a href="@Url.Action("About", "Home", new { area="Website"})">درباره ما</a></li>
+                        <li><a href="@Url.Action("Index", "Home", new { area="Website"})">صفحه اصلی</a></li>
                     </ul>
                 </div>
+                <div class="col-sm-4 pull-right">
+                    &copy; 2016 تمامی حقوق این سایت برای نگارخانه نگاه نو محفوظ است
+                </div>
+              
             </div>
         </div>
     </footer><!--/#footer-->
