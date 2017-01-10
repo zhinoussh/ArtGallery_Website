@@ -193,3 +193,16 @@ D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.
 D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.pdb
 D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.Migrations.Add_artGallery_table.resources
 D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.csproj.GenerateResource.Cache
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Practices.ServiceLocation.dll
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Practices.Unity.dll
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Practices.Unity.Mvc.dll
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\WebActivatorEx.dll
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Practices.ServiceLocation.pdb
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Practices.ServiceLocation.xml
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Practices.Unity.xml
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Practices.Unity.Configuration.xml
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Practices.Unity.Mvc.xml
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.csprojResolveAssemblyReference.cache
