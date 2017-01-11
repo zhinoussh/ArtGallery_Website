@@ -64,6 +64,12 @@
     <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
       <HintPath>packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -185,11 +191,15 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ArtGalleryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\Admin\ViewModels\ArtGalleryViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\GalleryPageViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\SearchPaginationViewModel.cs" />
     <Compile Include="Areas\EnglishWebsite\EnglishWebsiteAreaRegistration.cs" />
     <Compile Include="Areas\Website\WebsiteAreaRegistration.cs" />
     <Compile Include="Areas\Account\Controllers\AccountController.cs" />
     <Compile Include="Areas\Website\Controllers\HomeController.cs" />
     <Compile Include="Areas\Account\Controllers\ManageController.cs" />
+    <Compile Include="Components\AjaxActionLink.cs" />
     <Compile Include="DataAccessLayer\DataRepository.cs" />
     <Compile Include="DataAccessLayer\IDataRepository.cs" />
     <Compile Include="DataAccessLayer\IServiceLayer.cs" />
@@ -214,10 +224,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\dashboard.js" />
+    <Content Include="Content\admin.css">
+      <DependentUpon>admin.less</DependentUpon>
+    </Content>
+    <Content Include="Content\admin.min.css">
+      <DependentUpon>admin.css</DependentUpon>
+    </Content>
     <Content Include="Content\Dashboard.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\waves.css" />
     <Content Include="Content\website.css">
       <DependentUpon>website.less</DependentUpon>
@@ -312,6 +329,11 @@
       <DependentUpon>website.css</DependentUpon>
     </Content>
     <Content Include="Areas\Website\Views\Home\test.cshtml" />
+    <Content Include="Content\admin.less" />
+    <Content Include="Content\admin.css.map">
+      <DependentUpon>admin.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\ArtGallery\_PartialGalleryList.cshtml" />
     <None Include="Properties\PublishProfiles\Zhinous.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="images\logo.jpg" />
@@ -376,7 +398,6 @@
     <Folder Include="Areas\Account\Models\" />
     <Folder Include="Areas\Account\Views\Shared\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\ViewModels\" />
     <Folder Include="Areas\Admin\Views\Profile\" />
     <Folder Include="Areas\EnglishWebsite\Controllers\" />
     <Folder Include="Areas\EnglishWebsite\Models\" />

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using website_negaheno.Areas.Account.Controllers;
 using website_negaheno.DataAccessLayer;
 
 namespace website_negaheno.Helpers
@@ -32,7 +33,7 @@ namespace website_negaheno.Helpers
         }
         public static void RegisterTypes(IUnityContainer container)
         {
-
+            container.RegisterType<AccountController>(new InjectionConstructor());
         }
     }  
 }

@@ -127,7 +127,7 @@ body.fixed-left .side-menu.left {
   color: #f5f5f5;
   font-size: 21px;
   line-height: 60px;
-  padding: 0px 15px;
+  padding: 0 15px;
 }
 .button-menu-mobile:hover {
   color: #ffffff;
@@ -347,21 +347,4 @@ body.fixed-left .side-menu.left {
 }
 #wrapper.enlarged #sidebar-menu > ul > li:hover > a.active :after {
   display: none;
-}
-
-.fa-icon {
-color:rgba(67, 89, 102, 0.8);
-}
-
-.topbuffer-10 {
-    margin-top:10px;
-}
-.topbuffer-20 {
-    margin-top:20px;
-}
-.topbuffer-50 {
-    margin-top:50px;
-}
-.nopadding {
-    padding:0;
 }

@@ -8,5 +8,6 @@ namespace website_negaheno.DataAccessLayer
 {
     public interface IServiceLayer
     {
+
     }
 }

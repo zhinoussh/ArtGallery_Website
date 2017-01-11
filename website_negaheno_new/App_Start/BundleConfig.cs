@@ -36,7 +36,9 @@ namespace website_negaheno
                       "~/Content/bootstrap.min.css",
                       "~/Content/font-awesome.min.css",
                       "~/Content/Dashboard.css",
-                      "~/Content/waves.css"
+                      "~/Content/admin.min.css",
+                      "~/Content/waves.css",
+                      "~/Content/PagedList.css"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/WebsiteJS").Include(
