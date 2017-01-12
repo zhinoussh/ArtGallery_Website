@@ -49,7 +49,8 @@ namespace website_negaheno
             bundles.Add(new ScriptBundle("~/bundles/dashboardJS").Include(
                       "~/Scripts/bootstrap.min.js",
                       "~/Scripts/jquery.slimscroll.js",
-                     "~/Areas/Admin/Scripts/dashboard.js" ,
+                     "~/Areas/Admin/Scripts/dashboard.js",
+                     "~/Areas/Admin/Scripts/admin.js",
                         "~/Scripts/waves.js"
                      ));
        

@@ -70,6 +70,10 @@ input:focus {
 .td-left {
   text-align: left !important;
 }
+.td-farsi {
+  font-family: Tahoma;
+  font-size: 10pt;
+}
 .table_header {
   border-radius: 5px 5px 0px 0px;
   background-color: rgba(172, 190, 201, 0.8);
@@ -104,7 +108,7 @@ input:focus {
 .glyphicon-picture {
   color: #69c8ef;
   font-size: 15pt;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .glyphicon-picture:hover {
   font-weight: bold;
@@ -112,7 +116,7 @@ input:focus {
 .glyphicon-edit {
   color: #edd54b;
   font-size: 15pt;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .glyphicon-edit:hover {
   font-weight: bold;
@@ -120,9 +124,39 @@ input:focus {
 .glyphicon-trash {
   color: #d73638;
   font-size: 15pt;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .glyphicon-trash:hover {
   font-weight: bold;
+}
+.glyphicon-list-alt {
+  color: #917d0e;
+  font-size: 15pt;
+  margin-left: 5px;
+}
+.glyphicon-list-alt:hover {
+  font-weight: bold;
+}
+.glyphicon-open-file {
+  color: #36d782;
+  font-size: 15pt;
+  margin-left: 5px;
+}
+.glyphicon-open-file:hover {
+  font-weight: bold;
+}
+/*Modal*/
+.modal-header-info {
+  background-color: #52c0ed;
+  border-radius: 5px 5px 0px 0px;
+  color: #fff;
+  height: 40px;
+  padding-top: 10px;
+  font-size: 12pt !important;
+}
+.btn-info {
+  background-color: #52c0ed;
+  color: #fff;
+  width: 70px;
 }
 /*# sourceMappingURL=admin.css.map */

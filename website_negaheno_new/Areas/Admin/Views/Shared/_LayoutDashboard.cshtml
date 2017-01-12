@@ -102,11 +102,19 @@
                 <div class="content">
                     <div class="container">
 
-                        @RenderBody()
+                        <!--Modal Container-->
+                        <div id="modal_container" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                </div>
+                            </div>
+                        </div>
+
+                                    @RenderBody()
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-    </div>
 
             @Scripts.Render("~/bundles/jquery")
             @Scripts.Render("~/bundles/jqueryval")

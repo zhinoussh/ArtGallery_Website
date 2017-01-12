@@ -1,0 +1,33 @@
+﻿@model website_negaheno.Areas.Admin.ViewModels.ArtGalleryViewModel
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm("Insert_Gallery", "ArtGallery", new { area = "Admin" }
+    , new AjaxOptions
+    {
+        HttpMethod = "Post",
+        OnSuccess = "Success_add_gallery"
+    }, new { enctype = "multipart/form-data", id = "frm_add_city" }
+))
+{
+    @Html.AntiForgeryToken()
+
+@Html.HiddenFor(model => model.GaleeryId)
+            <div class="modal-header modal-header-info">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <i class="glyphicon glyphicon-plus"></i> Add New Gallery
+            </div>
+            <div class="modal-body">
+                <div class="col-xs-12">
+                  @Html.LabelFor(model=>model.fa_title)
+                </div>
+                <div class="col-xs-12">
+                    @Html.TextBoxFor(model => model.fa_title, new { @class="form-control",@placeholder="Farsi Title..."})
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-info">Save</button>
+            </div>
+}
