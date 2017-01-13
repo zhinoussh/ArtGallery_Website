@@ -13,11 +13,11 @@ namespace website_negaheno.Areas.Admin.ViewModels
         public int GaleeryId { get; set; }
        
         [Display(Name = "English Title: ")]
-        [MaxLength(200)]
+        [MaxLength(200,ErrorMessage="max lenghts should be 200 characters")]
         public string eng_title { get; set; }
        
-        [Required]
-        [MaxLength(200)]
+        [Required(ErrorMessage="Please Enter the Title of Gallery.")]
+        [MaxLength(200, ErrorMessage = "max lenghts should be 200 characters")]
         [Display(Name = "Farsi Title: ")]
         public string fa_title { get; set; }
         
@@ -31,11 +31,11 @@ namespace website_negaheno.Areas.Admin.ViewModels
         public string toDate { get; set; }
        
         [Display(Name = "Time:")]
-        [MaxLength(5)]
+        [MaxLength(5, ErrorMessage = "max lenghts should be 5 characters")]
         public string fromHour { get; set; }
         
         [Display(Name="To")]
-        [MaxLength(5)]
+        [MaxLength(5, ErrorMessage = "max lenghts should be 5 characters")]
         public string toHour { get; set; }
     }
 }

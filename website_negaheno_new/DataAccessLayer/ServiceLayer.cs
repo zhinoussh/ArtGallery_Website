@@ -63,5 +63,17 @@ namespace website_negaheno.DataAccessLayer
 
             return page_vm;
         }
+
+
+        public ArtGalleryViewModel Get_Insert_New_Gallery()
+        {
+            ArtGalleryViewModel vm = new ArtGalleryViewModel();
+            return vm;                 
+        }
+
+        public void Post_Insert_New_Gallery(ArtGalleryViewModel vm)
+        {
+            DataLayer.Insert_New_ArtGallery(vm);
+        }
     }
 }

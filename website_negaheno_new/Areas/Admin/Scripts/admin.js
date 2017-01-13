@@ -8,11 +8,19 @@ $(document).on('click', '#btn-add-new', function () {
         success: function (result) {
             $("#modal_container").find(".modal-content").html(result);
             $("#modal_container").modal('show');
+            reparseform();
             config_addNewGallery_Modal();
 
         }
     });
 });
+
+var reparseform = function () {
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+
+};
 
 $(document).on('click', "#btn_fromDate", function (event) {
     event.preventDefault();
@@ -27,12 +35,6 @@ $(document).on('click', "#btn_toDate", function (event) {
 function config_addNewGallery_Modal(){
 
 
-    $("#datepicker1").datepicker();
-    $("#datepicker1btn").click(function (event) {
-        event.preventDefault();
-        $("#datepicker1").focus();
-    })
-
     $("#fromDate").datepicker({
         changeMonth: true,
         changeYear: true
@@ -45,11 +47,26 @@ function config_addNewGallery_Modal(){
     $('#fromHour').timepicker({
         template: false,
         showInputs: false,
-        minuteStep: 1
+        minuteStep: 1,
+        showMeridian: false
     });
     $('#toHour').timepicker({
         template: false,
         showInputs: false,
-        minuteStep: 1
+        minuteStep: 1,
+        showMeridian: false
     });
 }
+
+function Success_add_gallery(result) {
+   
+    if (result.msg) {
+        $("#alert_success").html(result.msg);
+        $("#div_alert").slideDown(500);
+    }
+}
+
+$(document).on("click", "#close_alert", function () {
+    $("#div_alert").slideUp(500);
+    return false;
+});

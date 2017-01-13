@@ -13,5 +13,8 @@ namespace website_negaheno.DataAccessLayer
 
         GalleryPageViewModel Get_Index_ArtGalery(SearchPaginationViewModel search_pagination_vm);
 
+        ArtGalleryViewModel Get_Insert_New_Gallery();
+        void Post_Insert_New_Gallery(ArtGalleryViewModel vm);
+
     }
 }

@@ -34,14 +34,17 @@ namespace website_negaheno.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Insert_New_Gallery()
         {
-            ArtGalleryViewModel vm = new ArtGalleryViewModel();
-            return PartialView("_PartialAddGallery");
+            ArtGalleryViewModel vm = NegahenoService.Get_Insert_New_Gallery();
+            return PartialView("_PartialAddGallery",vm);
         }
 
         [HttpPost]
-        public ActionResult Insert_Gallery(ArtGalleryViewModel vm)
+        [ValidateAntiForgeryToken]
+        [ModelValidator]
+        public ActionResult Insert_New_Gallery(ArtGalleryViewModel vm)
         {
-            return  Json(new { msg = "" });
+            NegahenoService.Post_Insert_New_Gallery(vm);
+            return  Json(new { msg = "Gallery Added Successfully!" });
         }
     }
 }
