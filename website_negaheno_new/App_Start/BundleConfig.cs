@@ -38,7 +38,8 @@ namespace website_negaheno
                       "~/Content/Dashboard.css",
                       "~/Content/admin.min.css",
                       "~/Content/waves.css",
-                      "~/Content/PagedList.css"
+                      "~/Content/PagedList.css",
+                      "~/Content/bootstrap-datepicker.min.css"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/WebsiteJS").Include(
@@ -51,7 +52,10 @@ namespace website_negaheno
                       "~/Scripts/jquery.slimscroll.js",
                      "~/Areas/Admin/Scripts/dashboard.js",
                      "~/Areas/Admin/Scripts/admin.js",
-                        "~/Scripts/waves.js"
+                        "~/Scripts/waves.js",
+                        "~/Scripts/bootstrap-datepicker.fa.min.js",
+                        "~/Scripts/bootstrap-datepicker.min.js",
+                         "~/Scripts/bootstrap-timepicker.min.js"
                      ));
        
     

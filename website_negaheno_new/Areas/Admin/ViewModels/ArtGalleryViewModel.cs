@@ -13,24 +13,29 @@ namespace website_negaheno.Areas.Admin.ViewModels
         public int GaleeryId { get; set; }
        
         [Display(Name = "English Title: ")]
+        [MaxLength(200)]
         public string eng_title { get; set; }
+       
         [Required]
+        [MaxLength(200)]
         [Display(Name = "Farsi Title: ")]
         public string fa_title { get; set; }
         
-        [Display(Name = "Description: ")]
+        [Display(Name = "Description:")]
         public string description { get; set; }
         
-        [Display(Name = "Date: From ")]
+        [Display(Name = "From")]
         public string fromDate { get; set; }
         
-        [Display(Name = "To ")]
+        [Display(Name = "To")]
         public string toDate { get; set; }
        
-        [Display(Name = "Time: From ")]
+        [Display(Name = "Time:")]
+        [MaxLength(5)]
         public string fromHour { get; set; }
         
-        [Display(Name="To ")]
+        [Display(Name="To")]
+        [MaxLength(5)]
         public string toHour { get; set; }
     }
 }

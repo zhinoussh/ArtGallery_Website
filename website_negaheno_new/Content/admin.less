@@ -2,7 +2,7 @@
 
 @GrayColor: rgba(67, 89, 102, 0.8);
 @BaseYellowColor: #f2e079;
-@BaseBlueColor: #97d9f4;
+@BaseBlueColor: #7dcee2;
 @BaseRedColor: #d73638;
 @BaseGreenColor: #36d782;
 
@@ -64,7 +64,15 @@ body {
         color: #fff;
     }
 }
-
+.btn-calendar{
+    background-color: darken(@BaseBlueColor,50%);
+    color: #fff;
+    padding: 1px 8px;
+    height:34px;
+    &:hover {
+        color: #fff !important;
+    }
+}
 #btn-add-new {
     color: darken(@BaseBlueColor,40%);
     font-size: 13pt;
@@ -97,6 +105,12 @@ textarea:focus, input:focus {
 
 .nopadding {
     padding: 0;
+}
+
+.rtl-control{
+    direction:rtl;
+    font-family:Tahoma;
+    font-size:10pt;
 }
 
 /*Table*/
@@ -183,12 +197,51 @@ textarea:focus, input:focus {
 }
 
 .modal-header-info{
-   .ModelHeader(darken(@BaseBlueColor,15%));
+   .ModelHeader(darken(@BaseBlueColor,40%));
 }
 
 .btn-info{
-    background-color:darken(@BaseBlueColor,15%);
+    background-color:darken(@BaseBlueColor,45%);
+    border-color:darken(@BaseBlueColor,45%);
     color:#fff;
     width:70px;
 
+    &:hover{
+    background-color:darken(@BaseBlueColor,40%);
+
+    }
+
+}
+/*DatePicker*/
+#toDate,#fromDate{z-index:9999 !important}
+
+.ui-datepicker{
+     font-family:Tahoma;
+    font-size:10pt;
+}
+.ui-datepicker select.ui-datepicker-month,.ui-datepicker select.ui-datepicker-year{
+    font-weight:normal;
+}
+.ui-datepicker .ui-datepicker-prev{
+    width:15px;
+    height:15px;
+   background:url('../images/right-arrow.png') no-repeat;
+   background-size:15px;
+    &:hover,&:focus{
+         
+       background:url('../images/right-arrow.png') no-repeat;
+       background-size:15px;
+    }
+}
+
+.ui-datepicker .ui-datepicker-next{
+    width:15px;
+    height:15px;
+   background:url('../images/left-arrow.png') no-repeat;
+   background-size:15px;
+    &:hover,&:focus{
+         
+       background:url('../images/left-arrow.png') no-repeat;
+       background-size:15px;
+    }
 }

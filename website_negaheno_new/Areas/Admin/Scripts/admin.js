@@ -8,6 +8,48 @@ $(document).on('click', '#btn-add-new', function () {
         success: function (result) {
             $("#modal_container").find(".modal-content").html(result);
             $("#modal_container").modal('show');
+            config_addNewGallery_Modal();
+
         }
     });
 });
+
+$(document).on('click', "#btn_fromDate", function (event) {
+    event.preventDefault();
+    $("#fromDate").focus();
+});
+
+$(document).on('click', "#btn_toDate", function (event) {
+    event.preventDefault();
+    $("#toDate").focus();
+});
+
+function config_addNewGallery_Modal(){
+
+
+    $("#datepicker1").datepicker();
+    $("#datepicker1btn").click(function (event) {
+        event.preventDefault();
+        $("#datepicker1").focus();
+    })
+
+    $("#fromDate").datepicker({
+        changeMonth: true,
+        changeYear: true
+    });
+    $("#toDate").datepicker({
+        changeMonth: true,
+        changeYear: true
+    });
+
+    $('#fromHour').timepicker({
+        template: false,
+        showInputs: false,
+        minuteStep: 1
+    });
+    $('#toHour').timepicker({
+        template: false,
+        showInputs: false,
+        minuteStep: 1
+    });
+}

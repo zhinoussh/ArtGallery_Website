@@ -199,7 +199,10 @@
     <Compile Include="Areas\Account\Controllers\AccountController.cs" />
     <Compile Include="Areas\Website\Controllers\HomeController.cs" />
     <Compile Include="Areas\Account\Controllers\ManageController.cs" />
-    <Compile Include="Components\AjaxActionLink.cs" />
+    <Compile Include="Components\HtmlAddOnTextBoxFor.cs" />
+    <Compile Include="Components\HtmlBootstrapButton.cs" />
+    <Compile Include="Components\HtmlCommonProperty.cs" />
+    <Compile Include="Components\HtmlTextBoxFor.cs" />
     <Compile Include="DataAccessLayer\DataRepository.cs" />
     <Compile Include="DataAccessLayer\IDataRepository.cs" />
     <Compile Include="DataAccessLayer\IServiceLayer.cs" />
@@ -231,6 +234,7 @@
     <Content Include="Content\admin.min.css">
       <DependentUpon>admin.css</DependentUpon>
     </Content>
+    <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\Dashboard.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -243,6 +247,7 @@
     <Content Include="Content\website.min.css">
       <DependentUpon>website.css</DependentUpon>
     </Content>
+    <Content Include="Scripts\bootstrap-datepicker.fa.min.js" />
     <Content Include="images\art1.png" />
     <Content Include="images\babak.png" />
     <Content Include="images\image_bg.png" />
@@ -251,8 +256,9 @@
     <Content Include="images\sale.png" />
     <Content Include="images\slider\bg3.jpg" />
     <Content Include="images\workshop.png" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap-timepicker.min.js" />
     <Content Include="Scripts\waves.js" />
-    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.slimscroll.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Scripts\wow.min.js" />
