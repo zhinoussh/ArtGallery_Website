@@ -12,5 +12,6 @@ namespace website_negaheno.DataAccessLayer
         List<ArtGalleryViewModel> Get_ArtGalleryList();
         void Insert_New_ArtGallery(ArtGalleryViewModel vm);
         void Delet_ArtGallery(int galleryId);
+        ArtGalleryViewModel get_ArtGallery_byID(int id);
     }
 }

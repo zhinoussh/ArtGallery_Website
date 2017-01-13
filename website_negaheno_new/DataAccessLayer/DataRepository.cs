@@ -20,7 +20,7 @@ namespace website_negaheno.DataAccessLayer
             List<ArtGalleryViewModel> lst_gallery = (from g in db.tbl_art_gallery
                                                      select new ArtGalleryViewModel
                                                      {
-                                                         GaleeryId=g.ID,
+                                                         GalleryId=g.ID,
                                                          fa_title = g.title,
                                                          eng_title = g.english_title,
                                                          fromDate = g.fromDate,
@@ -32,10 +32,31 @@ namespace website_negaheno.DataAccessLayer
             return lst_gallery;
         }
 
+        public ArtGalleryViewModel get_ArtGallery_byID(int id)
+        {
+            ArtGalleryViewModel result = new ArtGalleryViewModel();
+
+            tbl_art_gallery gallery = db.tbl_art_gallery.Find(id);
+            
+            if (gallery != null)
+            {
+                result.GalleryId = id;
+                result.fa_title = gallery.title;
+                result.description = gallery.description;
+                result.eng_title = gallery.english_title;
+                result.fromDate = gallery.fromDate;
+                result.toDate = gallery.toDate;
+                result.fromHour = gallery.fromHour;
+                result.toHour = gallery.toHour;
+            }
+
+            return result;
+        }
+
         public void Insert_New_ArtGallery(ArtGalleryViewModel vm)
         {
             tbl_art_gallery gallery;
-            if (vm.GaleeryId == 0)
+            if (vm.GalleryId == 0)
             {
                 gallery = new tbl_art_gallery()
                 {
@@ -51,7 +72,7 @@ namespace website_negaheno.DataAccessLayer
             }
             else
             {
-                gallery = db.tbl_art_gallery.Find(vm.GaleeryId);
+                gallery = db.tbl_art_gallery.Find(vm.GalleryId);
 
                 if (gallery != null)
                 {

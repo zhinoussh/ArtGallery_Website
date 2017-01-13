@@ -8,12 +8,15 @@
     {
         HttpMethod = "Post",
         OnSuccess = "Success_add_gallery"
-    }, new { enctype = "multipart/form-data", id = "frm_add_city" }
+    }
 ))
 {
     @Html.AntiForgeryToken()
 
-    @Html.HiddenFor(model => model.GaleeryId)
+    @Html.HiddenFor(model => model.GalleryId)
+    @Html.HiddenFor(model => model.filter_page.page)
+    @Html.HiddenFor(model => model.filter_page.filter)
+    
     <div class="modal-header modal-header-info">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <i class="glyphicon glyphicon-plus"></i> Add New Gallery

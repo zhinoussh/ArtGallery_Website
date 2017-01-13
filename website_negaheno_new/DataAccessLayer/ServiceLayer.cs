@@ -28,7 +28,7 @@ namespace website_negaheno.DataAccessLayer
             }
         }
 
-        public GalleryPageViewModel Get_Index_ArtGalery(SearchPaginationViewModel search_pagination_vm)
+        public GalleryPageViewModel Get_Index_ArtGallery(SearchPaginationViewModel search_pagination_vm)
         {
             GalleryPageViewModel page_vm = new GalleryPageViewModel();
 
@@ -37,7 +37,7 @@ namespace website_negaheno.DataAccessLayer
             lst_gallery = lst_gallery.Select((x, Index) => new ArtGalleryViewModel()
             {
                 rowNumber = Index + 1,
-                GaleeryId = x.GaleeryId,
+                GalleryId = x.GalleryId,
                 fa_title = x.fa_title,
                 description = x.description,
                 fromDate = x.fromDate,
@@ -65,15 +65,34 @@ namespace website_negaheno.DataAccessLayer
         }
 
 
-        public ArtGalleryViewModel Get_Insert_New_Gallery()
+        public ArtGalleryViewModel Get_Insert_New_Gallery(int id,SearchPaginationViewModel filter_page)
         {
-            ArtGalleryViewModel vm = new ArtGalleryViewModel();
+            ArtGalleryViewModel vm;
+            if (id == 0)
+            {
+                vm = new ArtGalleryViewModel();
+                vm.fromHour = "16:00";
+                vm.toHour = "20:00";
+                //vm.filter_page = new SearchPaginationViewModel() { filter = "", page = 1 };
+            }
+            else
+            {
+                vm = DataLayer.get_ArtGallery_byID(id);
+            }
+            vm.filter_page = filter_page;
+            
             return vm;                 
         }
 
-        public void Post_Insert_New_Gallery(ArtGalleryViewModel vm)
+        public IPagedList<ArtGalleryViewModel> Post_Insert_New_Gallery(ArtGalleryViewModel vm)
         {
             DataLayer.Insert_New_ArtGallery(vm);
+
+            GalleryPageViewModel page = Get_Index_ArtGallery(vm.filter_page);
+            if (page != null)
+                return (IPagedList<ArtGalleryViewModel>)page.paged_list_artGallery;
+            else
+                return null;
         }
     }
 }

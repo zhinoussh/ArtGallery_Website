@@ -10,7 +10,12 @@ namespace website_negaheno.Areas.Admin.ViewModels
     {
 
         public int rowNumber { get; set; }
-        public int GaleeryId { get; set; }
+
+        public SearchPaginationViewModel filter_page { get; set; }
+        //public string currenFilter { get; set; }
+        //public int currenPage { get; set; }
+
+        public int GalleryId { get; set; }
        
         [Display(Name = "English Title: ")]
         [MaxLength(200,ErrorMessage="max lenghts should be 200 characters")]

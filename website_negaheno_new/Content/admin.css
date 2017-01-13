@@ -63,6 +63,11 @@ input:focus {
   font-family: Tahoma;
   font-size: 10pt;
 }
+.alert {
+  width: 85%;
+  height: 45px;
+  margin: 0 auto 0 auto;
+}
 /*Table*/
 #gallery_table {
   width: 85%;

@@ -21,7 +21,7 @@ namespace website_negaheno.Areas.Admin.Controllers
         // GET: Admin/ArtGallery
         public ActionResult Index(SearchPaginationViewModel vm)
         {
-            GalleryPageViewModel page_vm = NegahenoService.Get_Index_ArtGalery(vm);
+            GalleryPageViewModel page_vm = NegahenoService.Get_Index_ArtGallery(vm);
            
             if (Request.IsAjaxRequest())
                 return PartialView("_PartialGalleryList", page_vm.paged_list_artGallery);
@@ -32,10 +32,15 @@ namespace website_negaheno.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Insert_New_Gallery()
+        public ActionResult Insert_New_Gallery(int? id)
         {
-            ArtGalleryViewModel vm = NegahenoService.Get_Insert_New_Gallery();
-            return PartialView("_PartialAddGallery",vm);
+            SearchPaginationViewModel filter_page = new SearchPaginationViewModel();
+            filter_page.page = Request["page"] == null ? 1 : Int32.Parse(Request["page"].ToString());
+            filter_page.filter = Request["filter"] == null ? "" : Request["page"].ToString();
+
+            int gallery_id= id.HasValue ? id.Value : 0;
+            ArtGalleryViewModel vm = NegahenoService.Get_Insert_New_Gallery(gallery_id, filter_page);
+            return PartialView("_PartialAddGallery", vm);
         }
 
         [HttpPost]
@@ -43,8 +48,9 @@ namespace website_negaheno.Areas.Admin.Controllers
         [ModelValidator]
         public ActionResult Insert_New_Gallery(ArtGalleryViewModel vm)
         {
-            NegahenoService.Post_Insert_New_Gallery(vm);
-            return  Json(new { msg = "Gallery Added Successfully!" });
+           IPagedList<ArtGalleryViewModel> newTableContent= NegahenoService.Post_Insert_New_Gallery(vm);
+           return PartialView("_PartialGalleryList", newTableContent);
+
         }
     }
 }
