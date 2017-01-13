@@ -212,6 +212,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Bootstrapper.cs" />
+    <Compile Include="FilterAttributes\ModelValidatorAttribute.cs" />
     <Compile Include="Migrations\201701081745201_Add_artGallery_table.cs" />
     <Compile Include="Migrations\201701081745201_Add_artGallery_table.Designer.cs">
       <DependentUpon>201701081745201_Add_artGallery_table.cs</DependentUpon>

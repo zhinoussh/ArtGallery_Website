@@ -30,17 +30,8 @@ body {
 .btn-search:hover {
   color: #fff;
 }
-.btn-calendar {
-  background-color: #12424e;
-  color: #fff;
-  padding: 1px 8px;
-  height: 34px;
-}
-.btn-calendar:hover {
-  color: #fff !important;
-}
 #btn-add-new {
-  color: #1b6678;
+  color: #fff;
   font-size: 13pt;
 }
 #btn-add-new:hover,
@@ -161,7 +152,7 @@ input:focus {
 }
 /*Modal*/
 .modal-header-info {
-  background-color: #1b6678;
+  background-color: #68c6dd;
   border-radius: 5px 5px 0px 0px;
   color: #fff;
   height: 40px;
@@ -169,13 +160,22 @@ input:focus {
   font-size: 12pt !important;
 }
 .btn-info {
-  background-color: #165463;
-  border-color: #165463;
+  background-color: #68c6dd;
+  border-color: #2daccc;
   color: #fff;
   width: 70px;
 }
 .btn-info:hover {
-  background-color: #1b6678;
+  background-color: #3eb6d4;
+}
+.btn-calendar {
+  background-color: #92d6e7;
+  color: #1b6678;
+  padding: 1px 8px;
+  height: 34px;
+}
+.btn-calendar:hover {
+  color: #1b6678 !important;
 }
 /*DatePicker*/
 #toDate,
