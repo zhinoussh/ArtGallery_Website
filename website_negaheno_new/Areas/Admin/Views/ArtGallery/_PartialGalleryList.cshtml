@@ -8,6 +8,7 @@
 }
 @if (Model.Count > 0)
 {
+
     <div class="table_header">
         <div class="col-xs-1 text-center">#</div>
         <div class="col-xs-5 text-center nopadding">Farsi Title</div>
@@ -27,8 +28,8 @@
                 <td class="col-xs-1">@item.toDate</td>
                 <td class="col-xs-2">@item.fromHour - @item.toHour</td>
                 <td class="col-xs-2">
-                    <a href="#" id="btn-edit-gallery" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a>
-                    <a href="#" id="btn-delete-gallery" data-toggle="tooltip" title="Delete"><i class="glyphicon glyphicon-trash"></i></a>
+                    <a href="#" id="btn-edit-gallery" data-page='@Request["page"]' data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="#" id="btn-delete-gallery" data-page='@Request["page"]' data-toggle="tooltip" title="Delete"><i class="glyphicon glyphicon-trash"></i></a>
                     <a href="#" id="btn-addPoster-gallery" data-toggle="tooltip" title="Add Poster"><i class="glyphicon glyphicon-open-file"></i></a>
                     <a href="#" id="btn-addPhoto-gallery" data-toggle="tooltip" title="Add Photo"><i class="glyphicon glyphicon-picture"></i></a>
                     <a href="#" id="btn-detail-gallery" data-toggle="tooltip" title="Details"><i class="glyphicon glyphicon-list-alt"></i></a>
