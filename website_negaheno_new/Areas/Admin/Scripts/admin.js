@@ -1,5 +1,26 @@
 ﻿/// <reference path="D:\Git_repos\ArtGallery_Website\website_negaheno_new\Scripts/jquery-3.1.0.intellisense.js" />
 
+var reparseform = function () {
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+
+};
+
+$(document).on("click", "#close_alert", function () {
+    $("#div_alert").slideUp(500);
+    return false;
+});
+
+function AjaxReturn(msg,partial)
+{
+    $("#alert_success").html(msg);
+    $("#div_alert").slideDown(500);
+    $("#gallery_table").html(partial);
+
+    $("#modal_container").modal('hide');
+}
+
 $(document).on('click', '#btn-add-new', function () {
     add_new_Gallery();   
 });
@@ -26,12 +47,6 @@ function add_new_Gallery(galleryID)
         }
     });
 }
-var reparseform = function () {
-    $("form").removeData("validator");
-    $("form").removeData("unobtrusiveValidation");
-    $.validator.unobtrusive.parse("form");
-
-};
 
 $(document).on('click', "#btn_fromDate", function (event) {
     event.preventDefault();
@@ -71,16 +86,22 @@ function config_addNewGallery_Modal(){
 
 function Success_add_gallery(result) {
    
-    if (result) {
-        $("#alert_success").html("Gallery Added Successfully!");
-        $("#div_alert").slideDown(500);
-        $("#gallery_table").html(result);
-
-        $("#modal_container").modal('hide');
-    }
+    if (result) 
+        AjaxReturn("Gallery Added Successfully!", result);
 }
 
-$(document).on("click", "#close_alert", function () {
-    $("#div_alert").slideUp(500);
-    return false;
+$(document).on('click', '#btn-delete-gallery', function () {
+  
+    var galleryId = $(this).closest('tr').data('id');
+    var get_url = '/Admin/ArtGallery/Delete_Gallery/' + galleryId;
+
+    $.get(get_url, function (result) {
+        $("#modal_container").find('.modal-content').html(result);
+        $("#modal_container").modal('show');
+    });
 });
+
+function Success_DeleteGallery(result){
+    if (result)
+        AjaxReturn('Gallery Deleted Successfully!', result);
+}

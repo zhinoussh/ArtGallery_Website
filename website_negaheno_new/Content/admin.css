@@ -67,6 +67,7 @@ input:focus {
   width: 85%;
   height: 45px;
   margin: 0 auto 0 auto;
+  padding: 10px;
 }
 /*Table*/
 #gallery_table {
@@ -156,6 +157,14 @@ input:focus {
   font-weight: bold;
 }
 /*Modal*/
+.modal-header-danger {
+  background-color: #cb282a;
+  border-radius: 5px 5px 0px 0px;
+  color: #fff;
+  height: 40px;
+  padding-top: 10px;
+  font-size: 12pt !important;
+}
 .modal-header-info {
   background-color: #68c6dd;
   border-radius: 5px 5px 0px 0px;
@@ -164,23 +173,38 @@ input:focus {
   padding-top: 10px;
   font-size: 12pt !important;
 }
+.btn-danger {
+  background-color: #d73638;
+  border-color: #8b1c1d;
+  color: #ffffff;
+  padding: 1px 8px;
+  height: 34px;
+  width: 100px;
+}
+.btn-danger:hover {
+  background-color: #a12022;
+}
 .btn-info {
   background-color: #68c6dd;
-  border-color: #2daccc;
-  color: #fff;
-  width: 70px;
+  border-color: #299bb7;
+  color: #ffffff;
+  padding: 1px 8px;
+  height: 34px;
+  width: 100px;
 }
 .btn-info:hover {
-  background-color: #3eb6d4;
+  background-color: #2daccc;
 }
 .btn-calendar {
-  background-color: #92d6e7;
+  background-color: #7dcee2;
+  border-color: #2daccc;
   color: #1b6678;
   padding: 1px 8px;
   height: 34px;
+  width: 30px;
 }
 .btn-calendar:hover {
-  color: #1b6678 !important;
+  background-color: #3eb6d4;
 }
 /*DatePicker*/
 #toDate,

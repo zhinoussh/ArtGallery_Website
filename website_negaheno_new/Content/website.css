@@ -411,15 +411,14 @@ body {
 }
 .btn-login {
   background-color: #d73638;
-  color: #fff;
-  font-weight: bold;
   width: 100%;
+  color: #fff;
 }
 .btn-login:hover,
 .btn-login:focus {
   cursor: pointer;
   color: #e8dadc !important;
-  background-color: #df6162;
+  background-color: #d93f40;
 }
 .login_error ul {
   color: red !important;

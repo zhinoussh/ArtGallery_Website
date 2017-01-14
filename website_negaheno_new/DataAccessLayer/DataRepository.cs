@@ -91,6 +91,12 @@ namespace website_negaheno.DataAccessLayer
 
         public void Delet_ArtGallery(int galleryId)
         {
+            tbl_art_gallery gallery=db.tbl_art_gallery.Find(galleryId);
+            if (gallery != null)
+            {
+                db.tbl_art_gallery.Remove(gallery);
+                db.SaveChanges();
+            }
         }
     }
 }

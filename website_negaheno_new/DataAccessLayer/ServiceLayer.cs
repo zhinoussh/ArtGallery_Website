@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using website_negaheno.Areas.Admin.ViewModels;
 using PagedList;
+using System.Web.Mvc;
 
 namespace website_negaheno.DataAccessLayer
 {
@@ -11,7 +12,7 @@ namespace website_negaheno.DataAccessLayer
     {
         private IDataRepository _dataLayer;
 
-        private const int pagesize=10;
+        private const int pagesize=5;
 
         public IDataRepository DataLayer
         {
@@ -65,25 +66,28 @@ namespace website_negaheno.DataAccessLayer
         }
 
 
-        public ArtGalleryViewModel Get_Insert_New_Gallery(int id,SearchPaginationViewModel filter_page)
+        public ArtGalleryViewModel Get_Insert_New_Gallery(int ?id,Controller ctrl)
         {
+            int gallery_id = id.HasValue ? id.Value : 0;
+
             ArtGalleryViewModel vm;
-            if (id == 0)
+            if (gallery_id == 0)
             {
                 vm = new ArtGalleryViewModel();
                 vm.fromHour = "16:00";
                 vm.toHour = "20:00";
-                //vm.filter_page = new SearchPaginationViewModel() { filter = "", page = 1 };
             }
             else
             {
-                vm = DataLayer.get_ArtGallery_byID(id);
+                vm = DataLayer.get_ArtGallery_byID(gallery_id);
             }
-            vm.filter_page = filter_page;
+
+            vm.filter_page = Get_SearchPagination_Params(ctrl, vm);
             
             return vm;                 
         }
 
+      
         public IPagedList<ArtGalleryViewModel> Post_Insert_New_Gallery(ArtGalleryViewModel vm)
         {
             DataLayer.Insert_New_ArtGallery(vm);
@@ -94,5 +98,36 @@ namespace website_negaheno.DataAccessLayer
             else
                 return null;
         }
+
+        public ArtGalleryViewModel Get_Delete_Gallery(int? id, Controller ctrl)
+        {
+            ArtGalleryViewModel vm = new ArtGalleryViewModel();
+            vm.GalleryId = id.HasValue ? id.Value : 0;
+            vm.filter_page = Get_SearchPagination_Params(ctrl, vm);
+
+            return vm;        
+        }
+
+        public IPagedList<ArtGalleryViewModel> Post_Delete_Gallery(ArtGalleryViewModel vm) {
+            
+            DataLayer.Delet_ArtGallery(vm.GalleryId);
+
+            GalleryPageViewModel page = Get_Index_ArtGallery(vm.filter_page);
+            if (page != null)
+                return (IPagedList<ArtGalleryViewModel>)page.paged_list_artGallery;
+            else
+                return null;
+
+
+        }
+
+        private SearchPaginationViewModel Get_SearchPagination_Params(Controller ctrl, ArtGalleryViewModel vm)
+        {
+            SearchPaginationViewModel filter_page = new SearchPaginationViewModel();
+            filter_page.page = ctrl.Request["page"] == null ? 1 : Int32.Parse(ctrl.Request["page"].ToString());
+            filter_page.filter = ctrl.Request["filter"] == null ? "" : ctrl.Request["page"].ToString();
+            return filter_page;
+        }
+
     }
 }

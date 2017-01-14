@@ -343,6 +343,7 @@
     </Content>
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialGalleryList.cshtml" />
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialAddGallery.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\_PartialDeleteGallery.cshtml" />
     <None Include="Properties\PublishProfiles\Zhinous.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="images\logo.jpg" />

@@ -34,12 +34,7 @@ namespace website_negaheno.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Insert_New_Gallery(int? id)
         {
-            SearchPaginationViewModel filter_page = new SearchPaginationViewModel();
-            filter_page.page = Request["page"] == null ? 1 : Int32.Parse(Request["page"].ToString());
-            filter_page.filter = Request["filter"] == null ? "" : Request["page"].ToString();
-
-            int gallery_id= id.HasValue ? id.Value : 0;
-            ArtGalleryViewModel vm = NegahenoService.Get_Insert_New_Gallery(gallery_id, filter_page);
+            ArtGalleryViewModel vm = NegahenoService.Get_Insert_New_Gallery(id, this);
             return PartialView("_PartialAddGallery", vm);
         }
 
@@ -50,7 +45,23 @@ namespace website_negaheno.Areas.Admin.Controllers
         {
            IPagedList<ArtGalleryViewModel> newTableContent= NegahenoService.Post_Insert_New_Gallery(vm);
            return PartialView("_PartialGalleryList", newTableContent);
-
         }
+
+
+        [HttpGet]
+        public ActionResult Delete_Gallery(int? id)
+        {
+            ArtGalleryViewModel vm = NegahenoService.Get_Delete_Gallery(id, this);
+            return PartialView("_PartialDeleteGallery", vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete_Gallery(ArtGalleryViewModel vm)
+        {
+            IPagedList<ArtGalleryViewModel> newTableContent = NegahenoService.Post_Delete_Gallery(vm);
+            return PartialView("_PartialGalleryList", newTableContent);
+        }
+
     }
 }
