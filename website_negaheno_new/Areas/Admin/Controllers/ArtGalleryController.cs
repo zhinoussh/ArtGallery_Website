@@ -22,7 +22,10 @@ namespace website_negaheno.Areas.Admin.Controllers
         public ActionResult Index(SearchPaginationViewModel vm)
         {
             GalleryPageViewModel page_vm = NegahenoService.Get_Index_ArtGallery(vm);
-           
+
+            TempData["page"] = vm.page;
+            TempData["filter"] = vm.filter;
+
             if (Request.IsAjaxRequest())
                 return PartialView("_PartialGalleryList", page_vm.paged_list_artGallery);
             else
@@ -34,7 +37,7 @@ namespace website_negaheno.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Insert_New_Gallery(int? id)
         {
-            ArtGalleryViewModel vm = NegahenoService.Get_Insert_New_Gallery(id, this);
+            ArtGalleryViewModel vm = NegahenoService.Get_Insert_New_Gallery(id,this);
             return PartialView("_PartialAddGallery", vm);
         }
 
@@ -44,14 +47,14 @@ namespace website_negaheno.Areas.Admin.Controllers
         public ActionResult Insert_New_Gallery(ArtGalleryViewModel vm)
         {
            IPagedList<ArtGalleryViewModel> newTableContent= NegahenoService.Post_Insert_New_Gallery(vm);
-           return PartialView("_PartialGalleryList", newTableContent);
+           return Json(new { page_index = vm.filter_page.page, filter = vm.filter_page.filter + "" });
         }
 
 
         [HttpGet]
         public ActionResult Delete_Gallery(int? id)
         {
-            ArtGalleryViewModel vm = NegahenoService.Get_Delete_Gallery(id, this);
+            ArtGalleryViewModel vm = NegahenoService.Get_Delete_Gallery(id,this);
             return PartialView("_PartialDeleteGallery", vm);
         }
 
@@ -60,7 +63,7 @@ namespace website_negaheno.Areas.Admin.Controllers
         public ActionResult Delete_Gallery(ArtGalleryViewModel vm)
         {
             IPagedList<ArtGalleryViewModel> newTableContent = NegahenoService.Post_Delete_Gallery(vm);
-            return PartialView("_PartialGalleryList", newTableContent);
+            return Json(new { page_index = vm.filter_page.page, filter = vm.filter_page.filter+"" });
         }
 
     }

@@ -1,5 +1,13 @@
 ﻿/// <reference path="D:\Git_repos\ArtGallery_Website\website_negaheno_new\Scripts/jquery-3.1.0.intellisense.js" />
 
+$(document).ready(function(){
+    if (localStorage.getItem("msg")) {
+        $("#alert_success").html(localStorage.getItem("msg"));
+        $("#div_alert").slideDown(500);
+        localStorage.clear();
+    }
+
+});
 var reparseform = function () {
     $("form").removeData("validator");
     $("form").removeData("unobtrusiveValidation");
@@ -12,27 +20,21 @@ $(document).on("click", "#close_alert", function () {
     return false;
 });
 
-function AjaxReturn(msg,partial)
-{
-    $("#alert_success").html(msg);
-    $("#div_alert").slideDown(500);
-    $("#gallery_table").html(partial);
 
-    $("#modal_container").modal('hide');
-}
 
 $(document).on('click', '#btn-add-new', function () {
     add_new_Gallery();   
 });
 
 $(document).on('click', '#btn-edit-gallery', function () {
-   var gallery_id= $(this).closest('tr').data('id');
-   add_new_Gallery(gallery_id);
+    var gallery_id = $(this).closest('tr').data('id');
+    add_new_Gallery(gallery_id);
 });
 
 function add_new_Gallery(galleryID)
 {
     var get_url = '/Admin/ArtGallery/Insert_New_Gallery';
+    
     if (galleryID != '')
         get_url = get_url + "/" + galleryID;
 
@@ -86,13 +88,17 @@ function config_addNewGallery_Modal(){
 
 function Success_add_gallery(result) {
    
-    if (result) 
-        AjaxReturn("Gallery Added Successfully!", result);
+    if (result)
+    {
+        localStorage.setItem("msg", "Gallery Added Successfully!");
+        location.href = "/Admin/ArtGallery/Index?page=" + result.page_index + "&filter=" + result.filter;
+    }
 }
 
 $(document).on('click', '#btn-delete-gallery', function () {
   
     var galleryId = $(this).closest('tr').data('id');
+
     var get_url = '/Admin/ArtGallery/Delete_Gallery/' + galleryId;
 
     $.get(get_url, function (result) {
@@ -101,7 +107,9 @@ $(document).on('click', '#btn-delete-gallery', function () {
     });
 });
 
-function Success_DeleteGallery(result){
-    if (result)
-        AjaxReturn('Gallery Deleted Successfully!', result);
+function Success_DeleteGallery(result) {
+    if (result) {
+        localStorage.setItem("msg", 'Gallery Deleted Successfully!');
+        location.href="/Admin/ArtGallery/Index?page="+result.page_index+"&filter="+result.filter;
+    }
 }

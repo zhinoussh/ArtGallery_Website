@@ -66,7 +66,7 @@ namespace website_negaheno.DataAccessLayer
         }
 
 
-        public ArtGalleryViewModel Get_Insert_New_Gallery(int ?id,Controller ctrl)
+        public ArtGalleryViewModel Get_Insert_New_Gallery(int? id, Controller ctrl)
         {
             int gallery_id = id.HasValue ? id.Value : 0;
 
@@ -82,9 +82,19 @@ namespace website_negaheno.DataAccessLayer
                 vm = DataLayer.get_ArtGallery_byID(gallery_id);
             }
 
-            vm.filter_page = Get_SearchPagination_Params(ctrl, vm);
+            vm.filter_page = Get_SearchPagination_Params(ctrl);
             
             return vm;                 
+        }
+
+        private SearchPaginationViewModel Get_SearchPagination_Params(Controller ctrl)
+        {
+            SearchPaginationViewModel params_search_pagination= new SearchPaginationViewModel(){
+                page = ctrl.TempData["page"]==null ? 1 :Int32.Parse(ctrl.TempData["page"].ToString()),
+                filter = ctrl.TempData["filter"]==null?"": ctrl.TempData["filter"].ToString() 
+            };
+
+            return params_search_pagination;
         }
 
       
@@ -92,9 +102,11 @@ namespace website_negaheno.DataAccessLayer
         {
             DataLayer.Insert_New_ArtGallery(vm);
 
-            GalleryPageViewModel page = Get_Index_ArtGallery(vm.filter_page);
-            if (page != null)
-                return (IPagedList<ArtGalleryViewModel>)page.paged_list_artGallery;
+            GalleryPageViewModel gallery_page = Get_Index_ArtGallery(vm.filter_page);
+            if (gallery_page != null)
+            {
+                return (IPagedList<ArtGalleryViewModel>)gallery_page.paged_list_artGallery;
+            }
             else
                 return null;
         }
@@ -103,8 +115,7 @@ namespace website_negaheno.DataAccessLayer
         {
             ArtGalleryViewModel vm = new ArtGalleryViewModel();
             vm.GalleryId = id.HasValue ? id.Value : 0;
-            vm.filter_page = Get_SearchPagination_Params(ctrl, vm);
-
+            vm.filter_page = Get_SearchPagination_Params(ctrl);
             return vm;        
         }
 
@@ -121,13 +132,6 @@ namespace website_negaheno.DataAccessLayer
 
         }
 
-        private SearchPaginationViewModel Get_SearchPagination_Params(Controller ctrl, ArtGalleryViewModel vm)
-        {
-            SearchPaginationViewModel filter_page = new SearchPaginationViewModel();
-            filter_page.page = ctrl.Request["page"] == null ? 1 : Int32.Parse(ctrl.Request["page"].ToString());
-            filter_page.filter = ctrl.Request["filter"] == null ? "" : ctrl.Request["page"].ToString();
-            return filter_page;
-        }
 
     }
 }

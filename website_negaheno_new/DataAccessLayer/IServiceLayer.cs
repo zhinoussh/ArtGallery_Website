@@ -15,7 +15,7 @@ namespace website_negaheno.DataAccessLayer
 
         GalleryPageViewModel Get_Index_ArtGallery(SearchPaginationViewModel search_pagination_vm);
 
-        ArtGalleryViewModel Get_Insert_New_Gallery(int? id, Controller ctrl);
+        ArtGalleryViewModel Get_Insert_New_Gallery(int? id,Controller ctrl);
         IPagedList<ArtGalleryViewModel> Post_Insert_New_Gallery(ArtGalleryViewModel vm);
 
         ArtGalleryViewModel Get_Delete_Gallery(int? id, Controller ctrl);

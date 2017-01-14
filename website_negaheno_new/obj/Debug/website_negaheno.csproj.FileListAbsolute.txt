@@ -209,4 +209,3 @@ D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.
 D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.csproj.GenerateResource.Cache
 D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.dll
 D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.pdb
-D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.csprojResolveAssemblyReference.cache
