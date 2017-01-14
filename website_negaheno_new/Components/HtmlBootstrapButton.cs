@@ -19,6 +19,13 @@ namespace website_negaheno
         {
             return BootstrapButton(htmlHelper, innerHtml, cssClass, name, HtmlCommonProperty.ButtonType.button, "", htmlAttributes);
         }
+
+        public static MvcHtmlString BootstrapButton(this HtmlHelper htmlHelper, string innerHtml, string cssClass
+      , string name, HtmlCommonProperty.ButtonType buttonType, object htmlAttributes = null)
+        {
+            return BootstrapButton(htmlHelper, innerHtml, cssClass, name, buttonType, "", htmlAttributes);
+        }
+      
         public static MvcHtmlString BootstrapButton(this HtmlHelper htmlHelper, string innerHtml, string cssClass
         , string name, HtmlCommonProperty.ButtonType buttonType, string title, object htmlAttributes = null)
         {
