@@ -22,5 +22,8 @@ namespace website_negaheno.DataAccessLayer
 
         IPagedList<ArtGalleryViewModel> Post_Delete_Gallery(ArtGalleryViewModel vm);
 
+        GalleryImagesViewModel Get_PartialPoster(int id, Controller ctrl);
+        void Post_AddGalleryPoster(GalleryImagesViewModel vm,Controller ctrl);
+
     }
 }

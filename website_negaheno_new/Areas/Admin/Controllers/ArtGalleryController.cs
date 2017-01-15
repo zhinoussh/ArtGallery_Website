@@ -66,5 +66,23 @@ namespace website_negaheno.Areas.Admin.Controllers
             return Json(new { page_index = vm.filter_page.page, filter = vm.filter_page.filter+"" });
         }
 
+        [HttpGet]
+        public ActionResult Get_PosterModal(int id)
+        {
+            GalleryImagesViewModel vm=NegahenoService.Get_PartialPoster(id,this);
+            return PartialView("_PartialAddPoster", vm);
+        }
+        [HttpPost]
+        public ActionResult AddPoster(HttpPostedFileBase image, string GalleryId, string GalleryName)
+        {
+            GalleryImagesViewModel vm = new GalleryImagesViewModel() { 
+                GalleryID=Int32.Parse(GalleryId),
+                GalleryName = GalleryName,
+                image = image
+            };
+            NegahenoService.Post_AddGalleryPoster(vm,this);
+
+            return Json(new { msg = "poster uploaded successfully!" });
+        }
     }
 }

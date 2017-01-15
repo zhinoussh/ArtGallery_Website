@@ -5,6 +5,7 @@ using System.Web;
 using website_negaheno.Areas.Admin.ViewModels;
 using PagedList;
 using System.Web.Mvc;
+using System.IO;
 
 namespace website_negaheno.DataAccessLayer
 {
@@ -132,6 +133,34 @@ namespace website_negaheno.DataAccessLayer
 
         }
 
+        public GalleryImagesViewModel Get_PartialPoster(int id, Controller ctrl)
+        {
+            GalleryImagesViewModel vm = new GalleryImagesViewModel();
 
+            ArtGalleryViewModel gallery=DataLayer.get_ArtGallery_byID(id);
+
+            vm.GalleryID = id;
+            vm.GalleryName = gallery.fa_title.Length>50 ? (gallery.fa_title.Substring(0,50)+"...") : gallery.fa_title;
+            
+            string poster_path="/Upload/gallery_" + vm.GalleryID+ "/poster.jpg";
+            if(File.Exists(ctrl.Server.MapPath(@poster_path)))
+                vm.image_path = poster_path +"?"+  DateTime.Now.ToString("ddMMyyyyhhmmsstt");
+            else
+                vm.image_path = "/images/empty.gif?" + DateTime.Now.ToString("ddMMyyyyhhmmsstt");
+
+
+            return vm;
+        }
+        public void Post_AddGalleryPoster(GalleryImagesViewModel vm, Controller ctrl) {
+            
+            if (vm.image != null)
+            {
+                    string save_dir = ctrl.Server.MapPath(@"~\Upload\gallery_" + vm.GalleryID);
+                    if (!Directory.Exists(save_dir))
+                        Directory.CreateDirectory(save_dir);
+
+                    vm.image.SaveAs(save_dir + "\\poster.jpg");
+            }
+        }
     }
 }

@@ -192,6 +192,7 @@
     <Compile Include="Areas\Admin\Controllers\ArtGalleryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Admin\ViewModels\ArtGalleryViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\GalleryImagesViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryPageViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\SearchPaginationViewModel.cs" />
     <Compile Include="Areas\EnglishWebsite\EnglishWebsiteAreaRegistration.cs" />
@@ -237,6 +238,7 @@
     </Content>
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\Dashboard.css" />
+    <Content Include="Content\fileinput.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\main.css" />
@@ -248,6 +250,9 @@
     <Content Include="Content\website.min.css">
       <DependentUpon>website.css</DependentUpon>
     </Content>
+    <Content Include="images\empty.gif" />
+    <Content Include="img\loading-sm.gif" />
+    <Content Include="img\loading.gif" />
     <Content Include="Scripts\bootstrap-datepicker.fa.min.js" />
     <Content Include="images\art1.png" />
     <Content Include="images\babak.png" />
@@ -259,6 +264,7 @@
     <Content Include="images\workshop.png" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap-timepicker.min.js" />
+    <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\waves.js" />
     <Content Include="Scripts\jquery.slimscroll.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
@@ -344,6 +350,7 @@
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialGalleryList.cshtml" />
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialAddGallery.cshtml" />
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialDeleteGallery.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\_PartialAddPoster.cshtml" />
     <None Include="Properties\PublishProfiles\Zhinous.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="images\logo.jpg" />

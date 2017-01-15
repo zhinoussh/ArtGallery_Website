@@ -149,7 +149,7 @@ input:focus {
   font-weight: bold;
 }
 .glyphicon-open-file {
-  color: #36d782;
+  color: #3ec872;
   font-size: 15pt;
   margin-left: 5px;
 }
@@ -173,6 +173,14 @@ input:focus {
   padding-top: 10px;
   font-size: 12pt !important;
 }
+.modal-header-add {
+  background-color: #34b866;
+  border-radius: 5px 5px 0px 0px;
+  color: #fff;
+  height: 40px;
+  padding-top: 10px;
+  font-size: 12pt !important;
+}
 .btn-danger {
   background-color: #d73638;
   border-color: #8b1c1d;
@@ -182,7 +190,7 @@ input:focus {
   width: 100px;
 }
 .btn-danger:hover {
-  background-color: #a12022;
+  background-color: #cb282a;
 }
 .btn-info {
   background-color: #68c6dd;
@@ -193,7 +201,19 @@ input:focus {
   width: 100px;
 }
 .btn-info:hover {
-  background-color: #2daccc;
+  background-color: #53bed9;
+}
+.btn-success {
+  background-color: #34b866;
+  border-color: #1e693a;
+  color: #ffffff;
+  padding: 1px 8px;
+  height: 34px;
+  width: 100px;
+  padding-top: 5px;
+}
+.btn-success:hover {
+  background-color: #2fa45b;
 }
 .btn-calendar {
   background-color: #7dcee2;
@@ -204,7 +224,7 @@ input:focus {
   width: 30px;
 }
 .btn-calendar:hover {
-  background-color: #3eb6d4;
+  background-color: #68c6dd;
 }
 /*DatePicker*/
 #toDate,

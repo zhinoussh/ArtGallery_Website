@@ -4,7 +4,7 @@
 @BaseYellowColor: #f2e079;
 @BaseBlueColor: #7dcee2;
 @BaseRedColor: #d73638;
-@BaseGreenColor: #36d782;
+@BaseGreenColor: #3ec872;
 
 body {
     font-family: 'Lato', sans-serif;
@@ -197,7 +197,9 @@ textarea:focus, input:focus {
 .modal-header-info{
    .ModelHeader(darken(@BaseBlueColor,5%));
 }
-
+.modal-header-add{
+   .ModelHeader(darken(@BaseGreenColor,5%));
+}
 .commonButtonTraits(@bgColor,@fontColor,@width) {
     background-color:@bgColor;
     border-color: darken(@bgColor,20%);
@@ -206,7 +208,7 @@ textarea:focus, input:focus {
     height:34px;
     width:@width;
     &:hover {
-        background-color: darken(@bgColor,15%);
+        background-color: darken(@bgColor,5%);
     }
 }
 .btn-danger{
@@ -214,6 +216,10 @@ textarea:focus, input:focus {
 }
 .btn-info{
   .commonButtonTraits(darken(@BaseBlueColor,5%),#fff,100px);
+}
+.btn-success{
+  .commonButtonTraits(darken(@BaseGreenColor,5%),#fff,100px);
+  padding-top:5px;
 }
 .btn-calendar{
   .commonButtonTraits(@BaseBlueColor,darken(@BaseBlueColor,40%),30px);

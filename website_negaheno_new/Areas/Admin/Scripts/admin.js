@@ -6,6 +6,8 @@ $(document).ready(function(){
         $("#div_alert").slideDown(500);
         localStorage.clear();
     }
+    
+    
 
 });
 var reparseform = function () {
@@ -113,3 +115,67 @@ function Success_DeleteGallery(result) {
         location.href="/Admin/ArtGallery/Index?page="+result.page_index+"&filter="+result.filter;
     }
 }
+
+$(document).on('click', '#btn-add-poster', function () {
+
+    var galleryId = $(this).closest('tr').data('id');
+
+    var gallery_vm = {
+       
+    };
+
+    $.get("/Admin/ArtGallery/Get_PosterModal/" + galleryId, function (result) {
+        $("#modal_container").find(".modal-content").html(result);
+        $("#modal_container").modal('show');
+
+        //SetUp_AddImages
+        $("#inputimages").fileinput({
+            uploadAsync: false,
+            uploadUrl: '/Admin/ArtGallery/AddPoster/',
+            maxFilePreviewSize: 10240,
+            dropZoneEnabled: false,
+            uploadExtraData: {
+                GalleryId: $('#hd_gallery_id').val(),
+                GalleryName: $('#hd_gallery_name').val()
+            },
+            browseClass: "btn btn-sm btn-success",
+            showZoom: false,
+            initialPreview: ["<img src='" + $('#image_path').val() + "' alt='poster' style='width:220px; height:220px'>"]
+
+        }).on('filebatchuploadsuccess', function (event, data) {
+
+            localStorage.setItem("msg", data.msg);
+            location.reload();
+
+        });
+
+        ////SetUp_AddImages
+        //var img_path = $('#image_path').val();
+        //$("#image_poster").fileinput({
+        //    overwriteInitial: true,
+        //    cache: false,
+        //    maxFileSize: 1024,
+        //    maxFileCount: 1,
+        //    showClose: false,
+        //    showCaption: false,
+        //    browseLabel: 'Choose Image',
+        //    browseClass: "btn btn-sm btn-success",
+        //    removeClass: "btn btn-sm btn-danger",
+        //    removeLabel: 'Delete Image',
+        //    removeTitle: 'Delete Image',
+        //    browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>',
+        //    removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+        //    elErrorContainer: '#kv-avatar-errors-1',
+        //    msgErrorClass: 'alert alert-block alert-danger',
+        //    defaultPreviewContent: "<img src='" + img_path + "' alt='Hotel Image' style='width:220px; height:220px'>",
+        //    layoutTemplates: { main2: '{preview}  {remove} {browse}' },
+        //    allowedFileExtensions: ["jpg", "png", "gif"],
+        //    browseOnZoneClick: true,
+        //    showZoom: false
+        //    , deleteUrl: 'http://Admin/Hotel/DeleteMainImage/'
+
+        //});
+
+    });
+
+});
