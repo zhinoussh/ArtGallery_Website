@@ -65,12 +65,12 @@ $(document).on('click', "#btn_toDate", function (event) {
 function config_addNewGallery_Modal(){
 
     $("#fromDate").datepicker({
-        dateFormat: "yy/mm/dd DD",
+        dateFormat: "DD yy/mm/dd",
         changeMonth: true,
         changeYear: true
     });
     $("#toDate").datepicker({
-        dateFormat: "yy/mm/dd DD",
+        dateFormat: "DD yy/mm/dd",
         changeMonth: true,
         changeYear: true
     });

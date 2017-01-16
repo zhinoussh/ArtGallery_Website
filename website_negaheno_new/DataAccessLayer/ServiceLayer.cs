@@ -163,7 +163,8 @@ namespace website_negaheno.DataAccessLayer
             vm.fa_title = gallery.fa_title;
             vm.eng_title = gallery.eng_title;
             vm.openning_hours = gallery.fromHour + " - " + gallery.toHour;
-            vm.visit_dates = gallery.fromDate + " - " + gallery.toDate;
+            vm.visit_from = "Opening Day : "+gallery.fromDate ;
+            vm.visit_to ="Continues to : "+gallery.toDate;
 
             string poster_path = "/Upload/gallery_" + gallery.GalleryId + "/poster.jpg";
             if (File.Exists(ctrl.Server.MapPath(@poster_path)))

@@ -5,9 +5,9 @@
 
 <link href="~/Content/horizontalAccordion.css" rel="stylesheet" />
 
-<div class="modal-header modal-header-info">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <i class="glyphicon glyphicon-plus"></i> Gallery Details
+<div class="modal-header modal-header-info rtl-control">
+    <button type="button" class="close pull-left" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    @Model.fa_title
 </div>
 <div class="modal-body">
     <div class="row">
@@ -19,32 +19,38 @@
                         <a href="#"></a>
                     </div>
                     <div class="paragraph">
-                        <h1>Twitter</h1>
-                        <p>My thoughts in 140 characters or less. Sometimes, I do not know how to correctly use Twitter.</p>
+                        <h3>Visiting Days</h3>
+                        <p>@Model.visit_from<br />@Model.visit_to</p>
                     </div>
                 </li>
                 <li class="tabs">
-                    <div class="social-links facebook-icon">
+                    <div class="social-links time-icon">
+                        <a href="#"></a>
                     </div>
                     <div class="paragraph">
-                        <h1>Facebook</h1>
-                        <p>Where I get to stalk my friends and let them stalk me. A place to get people to stroke your ego.</p>
+                        <h3>Opening Houres</h3>
+                        <p>@Model.openning_hours</p>
                     </div>
                 </li>
                 <li class="tabs">
-                    <div class="social-links linkedin-icon">
+                    <div class="social-links info-icon">
+                        <a href="#"></a>
                     </div>
                     <div class="paragraph">
-                        <h1>LinkedIn</h1>
-                        <p>I act totally professional on this one. It is what the recruiters see, you see.</p>
+                        <h3>Descrption</h3>
+                        <p>
+                            <span class="rtl-control">@Model.fa_title</span>
+                            <br />@Model.eng_title<br />
+                            <span class="rtl-control">@Model.description</span>
+                        </p>
                     </div>
                 </li>
                 <li class="tabs">
-                    <div class="social-links insta-icon">
+                    <div class="social-links poster-icon">
+                        <a href="#"></a>
                     </div>
                     <div class="paragraph">
-                        <h1>Instagram</h1>
-                        <p>Where I post my duckface pictures. Occasionally, I would post pictures of my food and my cats.</p>
+                            <img src="@Model.poster_path" alt="~/images/empty.gif" style="width:200px; height:200px;" />
                     </div>
                 </li>
             </ul>
