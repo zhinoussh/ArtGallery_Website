@@ -139,6 +139,9 @@ $(document).on('click', '#btn-add-poster', function () {
                 page: $('#hd_page_index').val()
             },
             browseClass: "btn btn-sm btn-success",
+            uploadClass: "btn btn-sm btn-upload",
+            removeClass: "btn btn-sm btn-remove",
+            removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
             showZoom: false,
             initialPreview: ["<img src='" + $('#image_path').val() + "' alt='poster' style='width:220px; height:220px'>"],
             fileActionSettings: {
@@ -157,4 +160,14 @@ $(document).on('click', '#btn-add-poster', function () {
 
     });
 
+});
+
+$(document).on('click', '#btn-detail-gallery', function () {
+
+    var galleryId = $(this).closest('tr').data('id');
+
+    $.get("/Admin/ArtGallery/Get_GalleryDetail/" + galleryId, function (result) {
+        $("#modal_container").find(".modal-content").html(result);
+        $("#modal_container").modal('show');
+    });
 });

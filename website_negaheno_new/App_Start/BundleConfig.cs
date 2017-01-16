@@ -40,7 +40,7 @@ namespace website_negaheno
                       "~/Content/admin.min.css",
                       "~/Content/waves.css",
                       "~/Content/PagedList.css",
-                      "~/Content/bootstrap-datepicker.min.css"                      
+                      "~/Content/bootstrap-datepicker.min.css"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/WebsiteJS").Include(

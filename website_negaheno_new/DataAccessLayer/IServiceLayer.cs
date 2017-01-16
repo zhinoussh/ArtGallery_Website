@@ -24,6 +24,7 @@ namespace website_negaheno.DataAccessLayer
 
         GalleryImagesViewModel Get_PartialPoster(int id, Controller ctrl);
         void Post_AddGalleryPoster(GalleryImagesViewModel vm,Controller ctrl);
+        GalleryDetailViewModel Get_PartialDetail(int id, Controller ctrl);
 
     }
 }

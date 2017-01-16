@@ -164,7 +164,7 @@ textarea:focus, input:focus {
 }
 
 .glyphicon-picture {
-    .commonIconTraits(darken(@BaseBlueColor,10%));
+    .commonIconTraits(darken(@BaseBlueColor,30%));
 }
 
 .glyphicon-edit {
@@ -176,7 +176,7 @@ textarea:focus, input:focus {
 }
 
 .glyphicon-list-alt {
-    .commonIconTraits(darken(@BaseYellowColor,40%));
+    .commonIconTraits(darken(@BaseYellowColor,50%));
 }
 
 .glyphicon-open-file{
@@ -205,11 +205,13 @@ textarea:focus, input:focus {
     background-color:@bgColor;
     border-color: darken(@bgColor,20%);
     color: @fontColor;
-    padding: 1px 8px;
+    padding: 5px 8px;
     height:34px;
     width:@width;
+     font-size:10pt;
     &:hover {
         background-color: darken(@bgColor,5%);
+        color:@fontColor;
     }
 }
 .btn-danger{
@@ -220,7 +222,12 @@ textarea:focus, input:focus {
 }
 .btn-success{
   .commonButtonTraits(darken(@BaseGreenColor,5%),#fff,100px);
-  padding-top:5px;
+}
+.btn-upload{
+  .commonButtonTraits(darken(@BaseBlueColor,35%),#fff,100px);
+}
+.btn-remove{
+  .commonButtonTraits(darken(@BaseRedColor,5%),#fff,100px);
 }
 .btn-calendar{
   .commonButtonTraits(@BaseBlueColor,darken(@BaseBlueColor,40%),30px);

@@ -89,5 +89,12 @@ namespace website_negaheno.Areas.Admin.Controllers
 
             return Json(new { msg = "poster uploaded successfully!" ,page_index = page, filter = filter+""});
         }
+
+        [HttpGet]
+        public ActionResult Get_GalleryDetail(int id) {
+
+            GalleryDetailViewModel vm = NegahenoService.Get_PartialDetail(id,this);
+            return PartialView("_PartialDetailGallery",vm);
+        }
     }
 }

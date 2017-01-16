@@ -192,6 +192,7 @@
     <Compile Include="Areas\Admin\Controllers\ArtGalleryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Admin\ViewModels\ArtGalleryViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\GalleryDetailViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryImagesViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryPageViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\SearchPaginationViewModel.cs" />
@@ -242,6 +243,7 @@
     <Content Include="Content\fileinput.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\horizontalAccordion.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\waves.css" />
@@ -352,6 +354,7 @@
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialAddGallery.cshtml" />
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialDeleteGallery.cshtml" />
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialAddPoster.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\_PartialDetailGallery.cshtml" />
     <None Include="Properties\PublishProfiles\Zhinous.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="images\logo.jpg" />

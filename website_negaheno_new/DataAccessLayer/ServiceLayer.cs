@@ -154,6 +154,27 @@ namespace website_negaheno.DataAccessLayer
             }
         }
 
+        public GalleryDetailViewModel Get_PartialDetail(int id, Controller ctrl)
+        {
+            GalleryDetailViewModel vm = new GalleryDetailViewModel();
+
+            ArtGalleryViewModel gallery = DataLayer.get_ArtGallery_byID(id);
+
+            vm.fa_title = gallery.fa_title;
+            vm.eng_title = gallery.eng_title;
+            vm.openning_hours = gallery.fromHour + " - " + gallery.toHour;
+            vm.visit_dates = gallery.fromDate + " - " + gallery.toDate;
+
+            string poster_path = "/Upload/gallery_" + gallery.GalleryId + "/poster.jpg";
+            if (File.Exists(ctrl.Server.MapPath(@poster_path)))
+                vm.poster_path = poster_path + "?" + DateTime.Now.ToString("ddMMyyyyhhmmsstt");
+            else
+                vm.poster_path = "/images/empty.gif?" + DateTime.Now.ToString("ddMMyyyyhhmmsstt");
+
+
+            return vm;
+        }
+
         private SearchPaginationViewModel Get_SearchPagination_Params(Controller ctrl)
         {
             SearchPaginationViewModel params_search_pagination = new SearchPaginationViewModel()
