@@ -65,10 +65,12 @@ $(document).on('click', "#btn_toDate", function (event) {
 function config_addNewGallery_Modal(){
 
     $("#fromDate").datepicker({
+        dateFormat: "yy/mm/dd DD",
         changeMonth: true,
         changeYear: true
     });
     $("#toDate").datepicker({
+        dateFormat: "yy/mm/dd DD",
         changeMonth: true,
         changeYear: true
     });
@@ -119,11 +121,7 @@ function Success_DeleteGallery(result) {
 $(document).on('click', '#btn-add-poster', function () {
 
     var galleryId = $(this).closest('tr').data('id');
-
-    var gallery_vm = {
-       
-    };
-
+    
     $.get("/Admin/ArtGallery/Get_PosterModal/" + galleryId, function (result) {
         $("#modal_container").find(".modal-content").html(result);
         $("#modal_container").modal('show');
@@ -136,45 +134,26 @@ $(document).on('click', '#btn-add-poster', function () {
             dropZoneEnabled: false,
             uploadExtraData: {
                 GalleryId: $('#hd_gallery_id').val(),
-                GalleryName: $('#hd_gallery_name').val()
+                GalleryName: $('#hd_gallery_name').val(),
+                filter: $('#hd_filter').val(),
+                page: $('#hd_page_index').val()
             },
             browseClass: "btn btn-sm btn-success",
             showZoom: false,
-            initialPreview: ["<img src='" + $('#image_path').val() + "' alt='poster' style='width:220px; height:220px'>"]
-
+            initialPreview: ["<img src='" + $('#image_path').val() + "' alt='poster' style='width:220px; height:220px'>"],
+            fileActionSettings: {
+            showDrag: false,
+            showRemove: false,
+            showZoom: false,
+            }
         }).on('filebatchuploadsuccess', function (event, data) {
-
-            localStorage.setItem("msg", data.msg);
-            location.reload();
+            var response = data.response;
+             localStorage.setItem("msg", response.msg);
+             location.href = "/Admin/ArtGallery/Index?page=" + response.page_index + "&filter=" + response.filter
 
         });
 
-        ////SetUp_AddImages
-        //var img_path = $('#image_path').val();
-        //$("#image_poster").fileinput({
-        //    overwriteInitial: true,
-        //    cache: false,
-        //    maxFileSize: 1024,
-        //    maxFileCount: 1,
-        //    showClose: false,
-        //    showCaption: false,
-        //    browseLabel: 'Choose Image',
-        //    browseClass: "btn btn-sm btn-success",
-        //    removeClass: "btn btn-sm btn-danger",
-        //    removeLabel: 'Delete Image',
-        //    removeTitle: 'Delete Image',
-        //    browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>',
-        //    removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
-        //    elErrorContainer: '#kv-avatar-errors-1',
-        //    msgErrorClass: 'alert alert-block alert-danger',
-        //    defaultPreviewContent: "<img src='" + img_path + "' alt='Hotel Image' style='width:220px; height:220px'>",
-        //    layoutTemplates: { main2: '{preview}  {remove} {browse}' },
-        //    allowedFileExtensions: ["jpg", "png", "gif"],
-        //    browseOnZoneClick: true,
-        //    showZoom: false
-        //    , deleteUrl: 'http://Admin/Hotel/DeleteMainImage/'
-
-        //});
+      
 
     });
 

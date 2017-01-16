@@ -214,12 +214,13 @@
     </Compile>
     <Compile Include="Helpers\Bootstrapper.cs" />
     <Compile Include="FilterAttributes\ModelValidatorAttribute.cs" />
-    <Compile Include="Migrations\201701081745201_Add_artGallery_table.cs" />
-    <Compile Include="Migrations\201701081745201_Add_artGallery_table.Designer.cs">
-      <DependentUpon>201701081745201_Add_artGallery_table.cs</DependentUpon>
+    <Compile Include="Migrations\201701160812331_add_tbl_photo.cs" />
+    <Compile Include="Migrations\201701160812331_add_tbl_photo.Designer.cs">
+      <DependentUpon>201701160812331_add_tbl_photo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Configuration_Identity.cs" />
+    <Compile Include="Models\tbl_art_galery_photo.cs" />
     <Compile Include="Models\tbl_art_gallery.cs" />
     <Compile Include="Areas\Account\ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -428,8 +429,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701081745201_Add_artGallery_table.resx">
-      <DependentUpon>201701081745201_Add_artGallery_table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701160812331_add_tbl_photo.resx">
+      <DependentUpon>201701160812331_add_tbl_photo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

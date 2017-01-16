@@ -30,32 +30,30 @@ namespace website_negaheno.DataAccessLayer
             }
         }
 
-        public GalleryPageViewModel Get_Index_ArtGallery(SearchPaginationViewModel search_pagination_vm)
+        public GalleryPageViewModel Get_Index_ArtGallery(SearchPaginationViewModel search_pagination_vm,Controller ctrl)
         {
+            ctrl.TempData["page"] = search_pagination_vm.page;
+            ctrl.TempData["filter"] = search_pagination_vm.filter;
+
             GalleryPageViewModel page_vm = new GalleryPageViewModel();
 
             List<ArtGalleryViewModel> lst_gallery = DataLayer.Get_ArtGalleryList();
 
-            lst_gallery = lst_gallery.Select((x, Index) => new ArtGalleryViewModel()
-            {
-                rowNumber = Index + 1,
-                GalleryId = x.GalleryId,
-                fa_title = x.fa_title,
-                description = x.description,
-                fromDate = x.fromDate,
-                toDate = x.toDate,
-                fromHour = x.fromHour,
-                toHour = x.toHour
-            }).ToList();
+            lst_gallery = FilterGalleryList(lst_gallery, search_pagination_vm.filter);
 
-            if (search_pagination_vm == null)
-            {
-                search_pagination_vm = new SearchPaginationViewModel()
-                {
-                    page = 1,
-                    filter = ""
-                };
-            }
+            lst_gallery = lst_gallery.Select((x, Index) => new ArtGalleryViewModel()
+                                    {
+                                        rowNumber = Index + 1,
+                                        GalleryId = x.GalleryId,
+                                        fa_title = x.fa_title,
+                                        description = x.description,
+                                        fromDate = x.fromDate,
+                                        toDate = x.toDate,
+                                        fromHour = x.fromHour,
+                                        toHour = x.toHour
+                                    }).ToList();
+
+           
 
             int currentpage = search_pagination_vm.page.HasValue ? search_pagination_vm.page.Value : 1;
             IPagedList<ArtGalleryViewModel> paged_list_artGallery = lst_gallery.ToPagedList(currentpage, pagesize);
@@ -88,22 +86,13 @@ namespace website_negaheno.DataAccessLayer
             return vm;                 
         }
 
-        private SearchPaginationViewModel Get_SearchPagination_Params(Controller ctrl)
-        {
-            SearchPaginationViewModel params_search_pagination= new SearchPaginationViewModel(){
-                page = ctrl.TempData["page"]==null ? 1 :Int32.Parse(ctrl.TempData["page"].ToString()),
-                filter = ctrl.TempData["filter"]==null?"": ctrl.TempData["filter"].ToString() 
-            };
 
-            return params_search_pagination;
-        }
 
-      
-        public IPagedList<ArtGalleryViewModel> Post_Insert_New_Gallery(ArtGalleryViewModel vm)
+        public IPagedList<ArtGalleryViewModel> Post_Insert_New_Gallery(ArtGalleryViewModel vm, Controller ctrl)
         {
             DataLayer.Insert_New_ArtGallery(vm);
 
-            GalleryPageViewModel gallery_page = Get_Index_ArtGallery(vm.filter_page);
+            GalleryPageViewModel gallery_page = Get_Index_ArtGallery(vm.filter_page,ctrl);
             if (gallery_page != null)
             {
                 return (IPagedList<ArtGalleryViewModel>)gallery_page.paged_list_artGallery;
@@ -120,11 +109,12 @@ namespace website_negaheno.DataAccessLayer
             return vm;        
         }
 
-        public IPagedList<ArtGalleryViewModel> Post_Delete_Gallery(ArtGalleryViewModel vm) {
+        public IPagedList<ArtGalleryViewModel> Post_Delete_Gallery(ArtGalleryViewModel vm, Controller ctrl)
+        {
             
             DataLayer.Delet_ArtGallery(vm.GalleryId);
 
-            GalleryPageViewModel page = Get_Index_ArtGallery(vm.filter_page);
+            GalleryPageViewModel page = Get_Index_ArtGallery(vm.filter_page,ctrl);
             if (page != null)
                 return (IPagedList<ArtGalleryViewModel>)page.paged_list_artGallery;
             else
@@ -148,6 +138,7 @@ namespace website_negaheno.DataAccessLayer
             else
                 vm.image_path = "/images/empty.gif?" + DateTime.Now.ToString("ddMMyyyyhhmmsstt");
 
+            vm.filter_page = Get_SearchPagination_Params(ctrl);
 
             return vm;
         }
@@ -162,5 +153,30 @@ namespace website_negaheno.DataAccessLayer
                     vm.image.SaveAs(save_dir + "\\poster.jpg");
             }
         }
+
+        private SearchPaginationViewModel Get_SearchPagination_Params(Controller ctrl)
+        {
+            SearchPaginationViewModel params_search_pagination = new SearchPaginationViewModel()
+            {
+                page = ctrl.TempData["page"] == null ? 1 : Int32.Parse(ctrl.TempData["page"].ToString()),
+                filter = ctrl.TempData["filter"] == null ? "" : ctrl.TempData["filter"].ToString()
+            };
+
+            return params_search_pagination;
+        }
+
+        private List<ArtGalleryViewModel> FilterGalleryList(List<ArtGalleryViewModel> lst_gallery,string filter)
+        {
+            if (!String.IsNullOrEmpty(filter))
+                lst_gallery=lst_gallery.Where(x => (!String.IsNullOrEmpty(x.fa_title) && x.fa_title.Contains(filter))
+                                     || (!String.IsNullOrEmpty(x.eng_title) && x.eng_title.Contains(filter))
+                                     || (!String.IsNullOrEmpty(x.fromDate) && x.fromDate.Contains(filter))
+                                     || (!String.IsNullOrEmpty(x.toDate) && x.toDate.Contains(filter))
+                                     ).ToList();
+
+            return lst_gallery;
+                                     
+        }
+
     }
 }

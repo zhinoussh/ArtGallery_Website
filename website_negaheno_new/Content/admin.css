@@ -27,7 +27,8 @@ body {
   padding: 1px 8px;
   height: 30px;
 }
-.btn-search:hover {
+.btn-search:hover,
+.btn-search:focus {
   color: #fff;
 }
 #btn-add-new {

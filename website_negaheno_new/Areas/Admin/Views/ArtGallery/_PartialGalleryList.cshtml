@@ -22,13 +22,13 @@
         @foreach (ArtGalleryViewModel item in Model)
         {
             <tr data-id="@item.GalleryId">
-                <td class="col-xs-1" >@item.rowNumber</td>
+                <td class="col-xs-1">@item.rowNumber</td>
                 <td class="col-xs-5 td-farsi">@item.fa_title</td>
-                <td class="col-xs-1">@item.fromDate</td>
-                <td class="col-xs-1">@item.toDate</td>
+                <td class="col-xs-1 rtl-control">@item.fromDate</td>
+                <td class="col-xs-1 rtl-control">@item.toDate</td>
                 <td class="col-xs-2">@item.fromHour - @item.toHour</td>
                 <td class="col-xs-2">
-                    <a href="#" id="btn-edit-gallery"  data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="#" id="btn-edit-gallery" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a>
                     <a href="#" id="btn-delete-gallery" data-toggle="tooltip" title="Delete"><i class="glyphicon glyphicon-trash"></i></a>
                     <a href="#" id="btn-add-poster" data-toggle="tooltip" title="Add Poster"><i class="glyphicon glyphicon-open-file"></i></a>
                     <a href="#" id="btn-addPhoto-gallery" data-toggle="tooltip" title="Add Photo"><i class="glyphicon glyphicon-picture"></i></a>
@@ -42,8 +42,8 @@
 
         @if (Model.PageCount > 1)
         {
-        @Html.PagedListPager(Model, page => Url.Action("Index"
-                 , new SearchPaginationViewModel() { page = page, filter = Request["filter"] }
+            @Html.PagedListPager(Model, page => Url.Action("Index",
+                 new {page = page, filter = Request["filter"] }
                 ),
                 PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
                 new PagedListRenderOptions

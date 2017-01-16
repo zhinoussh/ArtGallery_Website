@@ -25,6 +25,8 @@
         <div id="errorBlock" class="help-block"></div>
         @Html.HiddenFor(model => model.GalleryID, new { id = "hd_gallery_id" })
         @Html.HiddenFor(model => model.GalleryName, new { id = "hd_gallery_name" })
+        @Html.HiddenFor(model => model.filter_page.page, new { id = "hd_page_index"})
+        @Html.HiddenFor(model => model.filter_page.filter, new { id = "hd_filter" })
     </div>
 
 }

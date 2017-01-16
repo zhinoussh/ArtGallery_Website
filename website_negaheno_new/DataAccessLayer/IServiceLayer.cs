@@ -13,14 +13,14 @@ namespace website_negaheno.DataAccessLayer
     {
         IDataRepository DataLayer { get; set; }
 
-        GalleryPageViewModel Get_Index_ArtGallery(SearchPaginationViewModel search_pagination_vm);
+        GalleryPageViewModel Get_Index_ArtGallery(SearchPaginationViewModel search_pagination_vm, Controller ctrl);
 
         ArtGalleryViewModel Get_Insert_New_Gallery(int? id,Controller ctrl);
-        IPagedList<ArtGalleryViewModel> Post_Insert_New_Gallery(ArtGalleryViewModel vm);
+        IPagedList<ArtGalleryViewModel> Post_Insert_New_Gallery(ArtGalleryViewModel vm, Controller ctrl);
 
         ArtGalleryViewModel Get_Delete_Gallery(int? id, Controller ctrl);
 
-        IPagedList<ArtGalleryViewModel> Post_Delete_Gallery(ArtGalleryViewModel vm);
+        IPagedList<ArtGalleryViewModel> Post_Delete_Gallery(ArtGalleryViewModel vm, Controller ctrl);
 
         GalleryImagesViewModel Get_PartialPoster(int id, Controller ctrl);
         void Post_AddGalleryPoster(GalleryImagesViewModel vm,Controller ctrl);
