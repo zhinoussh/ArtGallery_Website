@@ -25,7 +25,7 @@ body {
 .commonIconTraits(@bgcolor) {
     color: @bgcolor;
     font-size: 15pt;
-    margin-left:5px;
+    margin-left: 5px;
 
     &:hover {
         font-weight: bold;
@@ -60,14 +60,13 @@ body {
     padding: 1px 8px;
     height: 30px;
 
-    &:hover,&:focus {
+    &:hover, &:focus {
         color: #fff;
     }
-
 }
 
 #btn-add-new {
-    color:#fff;
+    color: #fff;
     font-size: 13pt;
 
     &:hover, &:focus {
@@ -100,14 +99,15 @@ textarea:focus, input:focus {
     padding: 0;
 }
 
-.rtl-control{
-    direction:rtl;
-    font-family:Tahoma;
-    font-size:10pt;
+.rtl-control {
+    direction: rtl;
+    font-family: Tahoma;
+    font-size: 10pt;
 }
-.alert{
+
+.alert {
     .commonBarTraits(0,auto,0,auto);
-    padding:10px;
+    padding: 10px;
 }
 /*Table*/
 #gallery_table {
@@ -176,73 +176,90 @@ textarea:focus, input:focus {
 }
 
 .glyphicon-list-alt {
-    .commonIconTraits(darken(@BaseYellowColor,50%));
+    .commonIconTraits(@GrayColor);
 }
 
-.glyphicon-open-file{
+.glyphicon-open-file {
     .commonIconTraits(@BaseGreenColor);
 }
 /*Modal*/
-.ModelHeader(@bgcolor) {
-    background-color:@bgcolor ;
+.ModelHeader(@bgcolor,@fontColor) {
+    background-color: @bgcolor;
     .borderRadius(5px,5px,0px,0px);
-    color: #fff;
+    color: @fontColor;
     height: 40px;
     padding-top: 10px;
-    font-size:12pt !important;
+    font-size: 12pt !important;
 }
 
-.modal-header-danger{
-   .ModelHeader(darken(@BaseRedColor,5%));
+.modal-header-default{
+    .ModelHeader(lighten(@GrayColor,60%),@GrayColor);
 }
-.modal-header-info{
-   .ModelHeader(darken(@BaseBlueColor,5%));
+.modal-header-danger {
+    .ModelHeader(darken(@BaseRedColor,5%),#fff);
 }
-.modal-header-add{
-   .ModelHeader(darken(@BaseGreenColor,5%));
+
+.modal-header-info {
+    .ModelHeader(darken(@BaseBlueColor,5%),#fff);
 }
+
+.modal-header-add {
+    .ModelHeader(darken(@BaseGreenColor,5%),#fff);
+}
+
 .commonButtonTraits(@bgColor,@fontColor,@width) {
-    background-color:@bgColor;
+    background-color: @bgColor;
     border-color: darken(@bgColor,20%);
-    color: @fontColor;
+    color: @fontColor !important;
     padding: 5px 8px;
-    height:34px;
-    width:@width;
-     font-size:10pt;
+    height: 34px;
+    width: @width;
+    font-size: 10pt;
+
     &:hover {
         background-color: darken(@bgColor,5%);
-        color:@fontColor;
+        color: @fontColor;
     }
 }
-.btn-danger{
-  .commonButtonTraits(@BaseRedColor,#fff,100px);
+
+.btn-danger {
+    .commonButtonTraits(@BaseRedColor,#fff,100px);
 }
-.btn-info{
-  .commonButtonTraits(darken(@BaseBlueColor,5%),#fff,100px);
+
+.btn-info {
+    .commonButtonTraits(darken(@BaseBlueColor,5%),#fff,100px);
 }
-.btn-success{
-  .commonButtonTraits(darken(@BaseGreenColor,5%),#fff,100px);
+
+.btn-success {
+    .commonButtonTraits(darken(@BaseGreenColor,5%),#fff,100px);
 }
-.btn-upload{
-  .commonButtonTraits(darken(@BaseBlueColor,35%),#fff,100px);
+
+.btn-upload {
+    .commonButtonTraits(darken(@BaseBlueColor,35%),#fff,100px);
 }
-.btn-remove{
-  .commonButtonTraits(darken(@BaseRedColor,5%),#fff,100px);
+
+.btn-remove {
+    .commonButtonTraits(darken(@BaseRedColor,5%),#fff,100px);
 }
-.btn-calendar{
-  .commonButtonTraits(@BaseBlueColor,darken(@BaseBlueColor,40%),30px);
+
+.btn-calendar {
+    .commonButtonTraits(@BaseBlueColor,darken(@BaseBlueColor,40%),30px);
 }
 /*DatePicker*/
 
-#toDate,#fromDate{z-index:9999 !important}
+#toDate, #fromDate {
+    z-index: 9999 !important;
+}
 
-.ui-datepicker{
-     font-family:Tahoma;
-    font-size:10pt;
+.ui-datepicker {
+    font-family: Tahoma;
+    font-size: 10pt;
 }
-.ui-datepicker select.ui-datepicker-month,.ui-datepicker select.ui-datepicker-year{
-    font-weight:normal;
+
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+    font-weight: normal;
 }
+
 .CalendarControl(@img) {
     width: 15px;
     height: 15px;
@@ -255,10 +272,50 @@ textarea:focus, input:focus {
     }
 }
 
-.ui-datepicker .ui-datepicker-prev{
+.ui-datepicker .ui-datepicker-prev {
     .CalendarControl('../images/right-arrow.png');
 }
 
-.ui-datepicker .ui-datepicker-next{
+.ui-datepicker .ui-datepicker-next {
     .CalendarControl('../images/left-arrow.png');
+}
+
+/*Image*/
+.uploadSection{
+    .commonBarTraits(0,auto,0,auto);
+}
+#div_images {
+    .commonBarTraits(0,auto,0,auto);
+}
+.gallery_img {
+    width: 250px;
+    height: 250px;
+}
+
+.well-image {
+    height: 320px;
+    width:100%;
+    &:hover {
+        box-shadow: #c6c2c2 5px 5px 5px 0;
+        background-color: #fbf4eb;
+    }
+}
+
+.btn-trash{
+   .commonButtonTraits(lighten(@BaseRedColor,5%),#fff,28px);
+   padding:0;
+}
+.btn-zoom{
+   .commonButtonTraits(@BaseBlueColor,#fff,28px);
+   padding:0;
+}
+
+.modal-dialog-image{
+    width:600px;
+    height:500px;
+}
+
+.zoom_img {
+    width:570px;
+    height:470px;
 }

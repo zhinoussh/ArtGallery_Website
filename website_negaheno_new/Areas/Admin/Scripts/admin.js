@@ -7,6 +7,33 @@ $(document).ready(function(){
         localStorage.clear();
     }
     
+    //SetUp_AddImages
+    $("#inputimages").fileinput({
+        uploadAsync: false,
+        uploadUrl: '/Admin/ArtGallery/AddImage/',
+        maxFilePreviewSize: 10240,
+        dropZoneEnabled: false,
+        uploadExtraData: {
+            GalleryId: $('#hd_gallery_id').val(),
+            page: $('#hd_page_index').val(),
+            __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val()
+        },
+        browseClass: "btn btn-sm btn-success",
+        uploadClass: "btn btn-sm btn-upload",
+        removeClass: "btn btn-sm btn-remove",
+        removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+        showZoom: false,
+        fileActionSettings: {
+            showDrag: false,
+            showRemove: false,
+            showZoom: false,
+        }
+    }).on('filebatchuploadsuccess', function (event, data) {
+        var response = data.response;
+        localStorage.setItem("msg", response.msg);
+        location.href = "/Admin/ArtGallery/Images/"+response.galleryID+"?page=" + response.page_index;
+
+    });
     
 
 });
@@ -17,12 +44,11 @@ var reparseform = function () {
 
 };
 
+
 $(document).on("click", "#close_alert", function () {
     $("#div_alert").slideUp(500);
     return false;
 });
-
-
 
 $(document).on('click', '#btn-add-new', function () {
     add_new_Gallery();   
@@ -127,7 +153,7 @@ $(document).on('click', '#btn-add-poster', function () {
         $("#modal_container").modal('show');
 
         //SetUp_AddImages
-        $("#inputimages").fileinput({
+        $("#poster").fileinput({
             uploadAsync: false,
             uploadUrl: '/Admin/ArtGallery/AddPoster/',
             maxFilePreviewSize: 10240,
@@ -136,7 +162,8 @@ $(document).on('click', '#btn-add-poster', function () {
                 GalleryId: $('#hd_gallery_id').val(),
                 GalleryName: $('#hd_gallery_name').val(),
                 filter: $('#hd_filter').val(),
-                page: $('#hd_page_index').val()
+                page: $('#hd_page_index').val(),
+                __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val()
             },
             browseClass: "btn btn-sm btn-success",
             uploadClass: "btn btn-sm btn-upload",
@@ -168,6 +195,30 @@ $(document).on('click', '#btn-detail-gallery', function () {
 
     $.get("/Admin/ArtGallery/Get_GalleryDetail/" + galleryId, function (result) {
         $("#modal_container").find(".modal-content").html(result);
+        $("#modal_container").modal('show');
+    });
+});
+
+$(document).on('click', '#btn_remove_image', function () {
+
+    var img = $('#img_path').val();
+
+    $.get("/Admin/ArtGallery/DeleteImage?img_path=" + img, function (result) {
+        $("#modal_container").find(".modal-content").html(result);
+        $("#modal_container").modal('show');
+    });
+});
+
+function SuccessAjax_DeleteImage(result) {
+    localStorage.setItem("msg", result.msg);
+    location.href = "/Admin/ArtGallery/Images/" + result.galleryID + "?page=" + result.page_index;
+}
+
+$(document).on('click', '#btn_zoom_image', function () {
+
+    var img = $('#img_path').val();
+    $.get("/Admin/ArtGallery/Get_ZoomImage?img_path=" + img, function (result) {
+        $("#modal_container").html(result);
         $("#modal_container").modal('show');
     });
 });

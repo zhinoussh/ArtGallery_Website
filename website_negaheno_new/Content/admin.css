@@ -142,7 +142,7 @@ input:focus {
   font-weight: bold;
 }
 .glyphicon-list-alt {
-  color: #62550a;
+  color: rgba(67, 89, 102, 0.8);
   font-size: 15pt;
   margin-left: 5px;
 }
@@ -158,10 +158,18 @@ input:focus {
   font-weight: bold;
 }
 /*Modal*/
+.modal-header-default {
+  background-color: rgba(234, 238, 241, 0.8);
+  border-radius: 5px 5px 0px 0px;
+  color: rgba(67, 89, 102, 0.8);
+  height: 40px;
+  padding-top: 10px;
+  font-size: 12pt !important;
+}
 .modal-header-danger {
   background-color: #cb282a;
   border-radius: 5px 5px 0px 0px;
-  color: #fff;
+  color: #ffffff;
   height: 40px;
   padding-top: 10px;
   font-size: 12pt !important;
@@ -169,7 +177,7 @@ input:focus {
 .modal-header-info {
   background-color: #68c6dd;
   border-radius: 5px 5px 0px 0px;
-  color: #fff;
+  color: #ffffff;
   height: 40px;
   padding-top: 10px;
   font-size: 12pt !important;
@@ -177,7 +185,7 @@ input:focus {
 .modal-header-add {
   background-color: #34b866;
   border-radius: 5px 5px 0px 0px;
-  color: #fff;
+  color: #ffffff;
   height: 40px;
   padding-top: 10px;
   font-size: 12pt !important;
@@ -185,7 +193,7 @@ input:focus {
 .btn-danger {
   background-color: #d73638;
   border-color: #8b1c1d;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 5px 8px;
   height: 34px;
   width: 100px;
@@ -198,7 +206,7 @@ input:focus {
 .btn-info {
   background-color: #68c6dd;
   border-color: #299bb7;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 5px 8px;
   height: 34px;
   width: 100px;
@@ -211,7 +219,7 @@ input:focus {
 .btn-success {
   background-color: #34b866;
   border-color: #1e693a;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 5px 8px;
   height: 34px;
   width: 100px;
@@ -224,7 +232,7 @@ input:focus {
 .btn-upload {
   background-color: #1f778d;
   border-color: #0d313a;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 5px 8px;
   height: 34px;
   width: 100px;
@@ -237,7 +245,7 @@ input:focus {
 .btn-remove {
   background-color: #cb282a;
   border-color: #761719;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 5px 8px;
   height: 34px;
   width: 100px;
@@ -250,7 +258,7 @@ input:focus {
 .btn-calendar {
   background-color: #7dcee2;
   border-color: #2daccc;
-  color: #1b6678;
+  color: #1b6678 !important;
   padding: 5px 8px;
   height: 34px;
   width: 30px;
@@ -294,5 +302,64 @@ input:focus {
 .ui-datepicker .ui-datepicker-next:focus {
   background: url('../images/left-arrow.png') no-repeat;
   background-size: 15px;
+}
+/*Image*/
+.uploadSection {
+  width: 85%;
+  height: 45px;
+  margin: 0 auto 0 auto;
+}
+#div_images {
+  width: 85%;
+  height: 45px;
+  margin: 0 auto 0 auto;
+}
+.gallery_img {
+  width: 250px;
+  height: 250px;
+}
+.well-image {
+  height: 320px;
+  width: 100%;
+}
+.well-image:hover {
+  box-shadow: #c6c2c2 5px 5px 5px 0;
+  background-color: #fbf4eb;
+}
+.btn-trash {
+  background-color: #db4b4d;
+  border-color: #a12022;
+  color: #ffffff !important;
+  padding: 5px 8px;
+  height: 34px;
+  width: 28px;
+  font-size: 10pt;
+  padding: 0;
+}
+.btn-trash:hover {
+  background-color: #d73638;
+  color: #ffffff;
+}
+.btn-zoom {
+  background-color: #7dcee2;
+  border-color: #2daccc;
+  color: #ffffff !important;
+  padding: 5px 8px;
+  height: 34px;
+  width: 28px;
+  font-size: 10pt;
+  padding: 0;
+}
+.btn-zoom:hover {
+  background-color: #68c6dd;
+  color: #ffffff;
+}
+.modal-dialog-image {
+  width: 600px;
+  height: 500px;
+}
+.zoom_img {
+  width: 570px;
+  height: 470px;
 }
 /*# sourceMappingURL=admin.css.map */

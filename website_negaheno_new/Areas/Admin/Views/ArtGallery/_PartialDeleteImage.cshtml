@@ -1,0 +1,31 @@
+﻿@model website_negaheno.Areas.Admin.ViewModels.ImageViewModel
+
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm("DeleteImage", "ArtGallery", new { area = "Admin" }, new AjaxOptions
+                            {
+                                HttpMethod = "Post",
+                                OnSuccess = "SuccessAjax_DeleteImage"
+                            }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.page)
+    @Html.HiddenFor(model => model.ImageId)
+    @Html.HiddenFor(model=>model.GalleryId)
+    
+    <div class="modal-header modal-header-danger">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
+        <i class="fa fa-trash"></i> Delete Gallery
+    </div>
+    <div class="modal-body">
+        Are you sure to delete?
+    </div>
+    <div class="modal-footer ">
+        @Html.BootstrapButton("Yes", "btn-danger ", "", HtmlCommonProperty.ButtonType.submit)
+
+        @Html.BootstrapButton("No", "btn-danger ", "", new { data_dismiss = "modal" })
+    </div>
+}

@@ -13,6 +13,8 @@
 
 }, new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
+
     <div class="modal-header modal-header-add rtl-control">
         <button type="button" class="close pull-left" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
         @Model.GalleryName
@@ -20,7 +22,7 @@
     <div class="modal-body">
 
         @Html.HiddenFor(model => model.image_path, new { id = "image_path" })
-        @Html.TextBoxFor(model => model.image, new { id = "inputimages", name = "inputimages[]", type = "file", @class = "file-loading" })
+        @Html.TextBoxFor(model => model.image, new { id = "poster", name = "poster[]", type = "file", @class = "file-loading" })
 
         <div id="errorBlock" class="help-block"></div>
         @Html.HiddenFor(model => model.GalleryID, new { id = "hd_gallery_id" })

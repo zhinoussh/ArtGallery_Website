@@ -1,0 +1,30 @@
+﻿@model website_negaheno.Areas.Admin.ViewModels.GalleryImagesViewModel
+@{
+    ViewBag.Title = "Images";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h4>@Model.GalleryName</h4>
+<div class="uploadSection">
+    <div class="col-xs-12">
+        @using (Ajax.BeginForm("", "", null, new AjaxOptions
+{
+    HttpMethod = "Post"
+    ,
+    InsertionMode = InsertionMode.ReplaceWith
+
+}, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            
+            @Html.TextBoxFor(model => model.image, new { id = "inputimages", name = "inputimages[]", type = "file", @class = "file-loading" })
+
+            <div id="errorBlock" class="help-block"></div>
+            @Html.HiddenFor(model => model.GalleryID, new { id = "hd_gallery_id" })
+            @Html.HiddenFor(model => model.filter_page.page, new { id = "hd_page_index" })
+        }
+    </div>
+</div>
+<div id="div_images">
+    @{Html.RenderPartial("_PartialImagesList", Model.gallery_images);}
+</div>

@@ -195,6 +195,7 @@
     <Compile Include="Areas\Admin\ViewModels\GalleryDetailViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryImagesViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryPageViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\ImageViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\SearchPaginationViewModel.cs" />
     <Compile Include="Areas\EnglishWebsite\EnglishWebsiteAreaRegistration.cs" />
     <Compile Include="Areas\Website\WebsiteAreaRegistration.cs" />
@@ -355,6 +356,10 @@
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialDeleteGallery.cshtml" />
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialAddPoster.cshtml" />
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialDetailGallery.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\Images.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\_PartialImagesList.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\_PartialDeleteImage.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\_PartialmImage.cshtml" />
     <None Include="Properties\PublishProfiles\Zhinous.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="images\logo.jpg" />

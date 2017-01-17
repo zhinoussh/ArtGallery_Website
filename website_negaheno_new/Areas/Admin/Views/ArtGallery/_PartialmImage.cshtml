@@ -1,0 +1,17 @@
+﻿@model string
+@{
+    Layout = null;
+}
+
+    <div class="modal-dialog modal-dialog-image">
+        <div class="modal-content">
+
+            <div class="modal-header modal-header-default">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
+                <i class="glyphicon glyphicon-zoom-in"></i> Image   
+            </div>
+            <div class="modal-body">
+                <img src='@String.Concat("/Upload/",Model)' alt="~/images/empty.gif" class="zoom_img" />
+            </div>
+        </div>
+    </div>
