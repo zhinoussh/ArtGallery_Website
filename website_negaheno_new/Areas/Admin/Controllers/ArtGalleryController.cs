@@ -19,12 +19,15 @@ namespace website_negaheno.Areas.Admin.Controllers
         }
 
         // GET: Admin/ArtGallery
-        public ActionResult Index(SearchPaginationViewModel vm)
+        public ActionResult Index(int?page,string filter)
         {
-            GalleryPageViewModel page_vm = NegahenoService.Get_Index_ArtGallery(vm);
+            SearchPaginationViewModel search_vm = new SearchPaginationViewModel()
+            {
+                filter = filter + "",
+                page = page.HasValue ? page.Value : 1
+            };
 
-            TempData["page"] = vm.page;
-            TempData["filter"] = vm.filter;
+            GalleryPageViewModel page_vm = NegahenoService.Get_Index_ArtGallery(search_vm,this);
 
             if (Request.IsAjaxRequest())
                 return PartialView("_PartialGalleryList", page_vm.paged_list_artGallery);
@@ -46,7 +49,7 @@ namespace website_negaheno.Areas.Admin.Controllers
         [ModelValidator]
         public ActionResult Insert_New_Gallery(ArtGalleryViewModel vm)
         {
-           IPagedList<ArtGalleryViewModel> newTableContent= NegahenoService.Post_Insert_New_Gallery(vm);
+           NegahenoService.Post_Insert_New_Gallery(vm);
            return Json(new { page_index = vm.filter_page.page, filter = vm.filter_page.filter + "" });
         }
 
@@ -62,9 +65,83 @@ namespace website_negaheno.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete_Gallery(ArtGalleryViewModel vm)
         {
-            IPagedList<ArtGalleryViewModel> newTableContent = NegahenoService.Post_Delete_Gallery(vm);
+            NegahenoService.Post_Delete_Gallery(vm);
             return Json(new { page_index = vm.filter_page.page, filter = vm.filter_page.filter+"" });
         }
 
+        [HttpGet]
+        public ActionResult Get_PosterModal(int id)
+        {
+            GalleryImagesViewModel vm=NegahenoService.Get_PartialPoster(id,this);
+            return PartialView("_PartialAddPoster", vm);
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPoster(HttpPostedFileBase image, int GalleryId, string GalleryName, string filter, int page)
+        {
+            GalleryImagesViewModel vm = new GalleryImagesViewModel()
+            {
+                GalleryID = GalleryId,
+                GalleryName = GalleryName,
+                image = image
+            };
+            NegahenoService.Post_AddGalleryPoster(vm,this);
+
+            return Json(new { msg = "poster uploaded successfully!" ,page_index = page, filter = filter+""});
+        }
+
+        [HttpGet]
+        public ActionResult Get_GalleryDetail(int id) {
+
+            GalleryDetailViewModel vm = NegahenoService.Get_PartialDetail(id,this);
+            return PartialView("_PartialDetailGallery",vm);
+        }
+
+        [HttpGet]
+        public ActionResult Images(int id, int? page)
+        {
+            GalleryImagesViewModel vm = NegahenoService.Get_ArtGallery_Images(id,page, this);
+
+            if (Request.IsAjaxRequest())
+                return PartialView("_PartialImagesList", vm.gallery_images);
+            else
+                return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddImage(HttpPostedFileBase image, int GalleryId, int page)
+        {
+            GalleryImagesViewModel vm = new GalleryImagesViewModel()
+            {
+                GalleryID = GalleryId,
+                image = image
+            };
+            NegahenoService.Post_AddGalleryImage(vm, this);
+
+            return Json(new { msg = "image uploaded successfully!", page_index = page,galleryID=GalleryId});
+        }
+
+        [HttpGet]
+        public ActionResult DeleteImage(string img_path)
+        {
+            ImageViewModel vm = NegahenoService.Get_Delete_GalleryImage(img_path, this);
+            return PartialView("_PartialDeleteImage", vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteImage(ImageViewModel vm)
+        {
+            NegahenoService.Post_Delete_GalleryImage(vm.ImageId,this);
+            return Json(new { msg = "image deleted successfully!", page_index = vm.page, galleryID = vm.GalleryId });
+        }
+
+        [HttpGet]
+        public ActionResult Get_ZoomImage(string img_path)
+        {
+            return PartialView("_PartialImage",img_path);
+        }
     }
 }

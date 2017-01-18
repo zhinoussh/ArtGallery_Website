@@ -7,13 +7,13 @@ namespace website_negaheno.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Add_artGallery_table : IMigrationMetadata
+    public sealed partial class add_tbl_photo : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Add_artGallery_table));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(add_tbl_photo));
         
         string IMigrationMetadata.Id
         {
-            get { return "201701081745201_Add_artGallery_table"; }
+            get { return "201701160812331_add_tbl_photo"; }
         }
         
         string IMigrationMetadata.Source

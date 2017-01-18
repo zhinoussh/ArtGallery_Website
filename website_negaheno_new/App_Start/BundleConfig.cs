@@ -35,6 +35,7 @@ namespace website_negaheno
             bundles.Add(new StyleBundle("~/Content/Dashboardcss").Include(
                       "~/Content/bootstrap.min.css",
                       "~/Content/font-awesome.min.css",
+                      "~/Content/fileinput.min.css",
                       "~/Content/Dashboard.css",
                       "~/Content/admin.min.css",
                       "~/Content/waves.css",
@@ -50,6 +51,7 @@ namespace website_negaheno
             bundles.Add(new ScriptBundle("~/bundles/dashboardJS").Include(
                       "~/Scripts/bootstrap.min.js",
                       "~/Scripts/jquery.slimscroll.js",
+                      "~/Scripts/fileinput.min.js",
                      "~/Areas/Admin/Scripts/dashboard.js",
                      "~/Areas/Admin/Scripts/admin.js",
                         "~/Scripts/waves.js",

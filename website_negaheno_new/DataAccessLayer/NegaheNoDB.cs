@@ -10,6 +10,7 @@ namespace website_negaheno.DataAccessLayer
     public class NegaheNoDB: DbContext
     {
         public virtual DbSet<tbl_art_gallery> tbl_art_gallery { get; set; }
+        public virtual DbSet<tbl_art_galery_photo> tbl_art_gallery_photo { get; set; }
 
         public NegaheNoDB()
             : base("name=NegaheNoConnection")
@@ -19,6 +20,13 @@ namespace website_negaheno.DataAccessLayer
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<tbl_art_gallery>()
+               .HasMany(e => e.photos)
+               .WithOptional(e => e.gallery)
+               .HasForeignKey(e => e.GalleryID)
+               .WillCascadeOnDelete();
+
         }
     }
 }

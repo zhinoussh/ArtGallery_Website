@@ -205,7 +205,7 @@ D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Owin.Security
 D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Owin.Security.Google.xml
 D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Git_repos\ArtGallery_Website\website_negaheno_new\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.Migrations.Add_artGallery_table.resources
+D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.Migrations.add_tbl_photo.resources
 D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.csproj.GenerateResource.Cache
 D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.dll
 D:\Git_repos\ArtGallery_Website\website_negaheno_new\obj\Debug\website_negaheno.pdb

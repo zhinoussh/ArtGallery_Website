@@ -5,9 +5,10 @@ using System.Web;
 
 namespace website_negaheno.Areas.Admin.ViewModels
 {
-    public class SearchPaginationViewModel
+    public class ImageViewModel
     {
-        public string filter { get; set; }
-        public int? page { get; set; }
+        public int ImageId { get; set; }
+        public int GalleryId { get; set; }
+        public int page { get; set; }
     }
 }

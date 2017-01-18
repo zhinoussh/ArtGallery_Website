@@ -191,9 +191,12 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ArtGalleryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
-    <Compile Include="Areas\Admin\ViewModels\ArtGalleryViewModel.cs" />
+    <Compile Include="ViewModels\ArtGalleryViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\GalleryDetailViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\GalleryImagesViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryPageViewModel.cs" />
-    <Compile Include="Areas\Admin\ViewModels\SearchPaginationViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\ImageViewModel.cs" />
+    <Compile Include="ViewModels\SearchPaginationViewModel.cs" />
     <Compile Include="Areas\EnglishWebsite\EnglishWebsiteAreaRegistration.cs" />
     <Compile Include="Areas\Website\WebsiteAreaRegistration.cs" />
     <Compile Include="Areas\Account\Controllers\AccountController.cs" />
@@ -213,12 +216,13 @@
     </Compile>
     <Compile Include="Helpers\Bootstrapper.cs" />
     <Compile Include="FilterAttributes\ModelValidatorAttribute.cs" />
-    <Compile Include="Migrations\201701081745201_Add_artGallery_table.cs" />
-    <Compile Include="Migrations\201701081745201_Add_artGallery_table.Designer.cs">
-      <DependentUpon>201701081745201_Add_artGallery_table.cs</DependentUpon>
+    <Compile Include="Migrations\201701160812331_add_tbl_photo.cs" />
+    <Compile Include="Migrations\201701160812331_add_tbl_photo.Designer.cs">
+      <DependentUpon>201701160812331_add_tbl_photo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Configuration_Identity.cs" />
+    <Compile Include="Models\tbl_art_galery_photo.cs" />
     <Compile Include="Models\tbl_art_gallery.cs" />
     <Compile Include="Areas\Account\ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -237,8 +241,10 @@
     </Content>
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\Dashboard.css" />
+    <Content Include="Content\fileinput.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\horizontalAccordion.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\waves.css" />
@@ -248,6 +254,9 @@
     <Content Include="Content\website.min.css">
       <DependentUpon>website.css</DependentUpon>
     </Content>
+    <Content Include="images\empty.gif" />
+    <Content Include="img\loading-sm.gif" />
+    <Content Include="img\loading.gif" />
     <Content Include="Scripts\bootstrap-datepicker.fa.min.js" />
     <Content Include="images\art1.png" />
     <Content Include="images\babak.png" />
@@ -259,6 +268,7 @@
     <Content Include="images\workshop.png" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap-timepicker.min.js" />
+    <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\waves.js" />
     <Content Include="Scripts\jquery.slimscroll.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
@@ -336,7 +346,6 @@
     <Content Include="Content\website.css.map">
       <DependentUpon>website.css</DependentUpon>
     </Content>
-    <Content Include="Areas\Website\Views\Home\test.cshtml" />
     <Content Include="Content\admin.less" />
     <Content Include="Content\admin.css.map">
       <DependentUpon>admin.css</DependentUpon>
@@ -344,6 +353,13 @@
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialGalleryList.cshtml" />
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialAddGallery.cshtml" />
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialDeleteGallery.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\_PartialAddPoster.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\_PartialDetailGallery.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\Images.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\_PartialImagesList.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\_PartialDeleteImage.cshtml" />
+    <Content Include="Areas\Admin\Views\ArtGallery\_PartialImage.cshtml" />
+    <Content Include="Areas\Website\Views\Home\_PartialCurrentGallery.cshtml" />
     <None Include="Properties\PublishProfiles\Zhinous.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="images\logo.jpg" />
@@ -421,8 +437,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701081745201_Add_artGallery_table.resx">
-      <DependentUpon>201701081745201_Add_artGallery_table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701160812331_add_tbl_photo.resx">
+      <DependentUpon>201701160812331_add_tbl_photo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

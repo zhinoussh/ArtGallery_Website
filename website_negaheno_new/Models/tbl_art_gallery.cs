@@ -8,6 +8,11 @@ namespace website_negaheno.Models
 {
     public class tbl_art_gallery
     {
+        public tbl_art_gallery()
+        {
+            photos = new HashSet<tbl_art_galery_photo>();
+        }
+
         [Key]
         public int ID { get; set; }
 
@@ -19,10 +24,10 @@ namespace website_negaheno.Models
 
         public string description { get; set; }
 
-        [StringLength(10)]
+        [StringLength(20)]
         public string fromDate { get; set; }
 
-        [StringLength(10)]
+        [StringLength(20)]
         public string toDate { get; set; }
 
         [StringLength(5)]
@@ -30,5 +35,7 @@ namespace website_negaheno.Models
 
         [StringLength(5)]
         public string toHour { get; set; }
+
+        public virtual ICollection<tbl_art_galery_photo> photos{ get; set; }
     }
 }

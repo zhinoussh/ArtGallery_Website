@@ -9,15 +9,13 @@
         @using (Ajax.BeginForm("Index", "ArtGallery", new AjaxOptions
     {
         HttpMethod = "GET",
-        InsertionMode = InsertionMode.ReplaceWith,
+        InsertionMode = InsertionMode.Replace,
         UpdateTargetId = "gallery_table"
 
     }))
         {
-            @*@Html.TextBox("filter", (string)ViewBag.filter, new { @class = "txt_search", @placeholder = "Search..." })*@
-            
             <div class="input-group">
-                @Html.TextBoxFor(model => model.search_pagination_params.filter, new { @class = "txt_search", @placeholder = "Search...", id = "filter" })
+                @Html.TextBox("filter", (string)TempData["filter"], new { @class = "txt_search", @placeholder = "Search..." })
                 <span class="input-group-btn">
                     <button type="submit" class="btn btn-search"><i class="glyphicon glyphicon-search"></i></button>
                 </span>
