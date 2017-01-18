@@ -30,5 +30,6 @@ namespace website_negaheno.DataAccessLayer
         void Post_AddGalleryImage(GalleryImagesViewModel vm, Controller ctrl);
         ImageViewModel Get_Delete_GalleryImage(string img_path, Controller ctrl);
         void Post_Delete_GalleryImage(int id, Controller ctrl);
+        List<ArtGalleryViewModel> Get_Current_Gallery();
     }
 }

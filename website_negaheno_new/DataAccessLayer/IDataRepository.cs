@@ -19,5 +19,6 @@ namespace website_negaheno.DataAccessLayer
         string get_lastPhoto_path(int galleryId);
         ImageViewModel get_photo_by_path(string img_path);
         string delete_gallery_image(int id);
+        ArtGalleryViewModel get_gallery_in_date(string dt);
     }
 }

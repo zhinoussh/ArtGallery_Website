@@ -192,7 +192,6 @@ namespace website_negaheno.DataAccessLayer
         }
         public void Post_AddGalleryImage(GalleryImagesViewModel vm, Controller ctrl)
         {
-
             string file_name = "";
             string photo_name = DataLayer.get_lastPhoto_path(vm.GalleryID);
             if (photo_name != "")
@@ -235,6 +234,22 @@ namespace website_negaheno.DataAccessLayer
                  File.Delete(file_path);
         }
 
+        public List<ArtGalleryViewModel> Get_Current_Gallery()
+        {
+            string today = get_today(0);
+            string next_week = get_today(7);
+            string next_2week = get_today(14);
+            string next_3week = get_today(21);
+
+            List<ArtGalleryViewModel> vm = new List<ArtGalleryViewModel>();
+            vm.Add(DataLayer.get_gallery_in_date(today));
+            vm.Add(DataLayer.get_gallery_in_date(next_week));
+            vm.Add(DataLayer.get_gallery_in_date(next_2week));
+            vm.Add(DataLayer.get_gallery_in_date(next_3week));
+
+            return vm;
+        }
+
         private SearchPaginationViewModel Get_SearchPagination_Params(Controller ctrl)
         {
             SearchPaginationViewModel params_search_pagination = new SearchPaginationViewModel()
@@ -257,6 +272,21 @@ namespace website_negaheno.DataAccessLayer
 
             return lst_gallery;
                                      
+        }
+
+        private string get_today(int addDays)
+        {
+            DateTime dt_gallery = DateTime.Now.AddDays(addDays);
+            System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
+            string month = pc.GetMonth(dt_gallery) + "";
+            if (month.Length == 1)
+                month = "0" + month;
+
+            string day = pc.GetDayOfMonth(dt_gallery) + "";
+            if (day.Length == 1)
+                day = "0" + day;
+
+            return pc.GetYear(dt_gallery) + "/" + month + "/" + day;
         }
 
     }

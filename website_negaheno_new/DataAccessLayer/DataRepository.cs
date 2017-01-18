@@ -129,7 +129,6 @@ namespace website_negaheno.DataAccessLayer
 
             return photo_path;
         }
-
         public ImageViewModel get_photo_by_path(string img_path)
         {
 
@@ -141,7 +140,6 @@ namespace website_negaheno.DataAccessLayer
                                  }).FirstOrDefault();
             return vm;
         }
-
         public string delete_gallery_image(int id) {
            tbl_art_galery_photo photo=db.tbl_art_gallery_photo.Find(id);
            string filepath = "gallery_" + photo.GalleryID + "\\" + photo.photo_path;
@@ -152,6 +150,23 @@ namespace website_negaheno.DataAccessLayer
            }
 
            return filepath;
+        }
+        public ArtGalleryViewModel get_gallery_in_date(string dt)
+        {
+            ArtGalleryViewModel gallery = (from g in db.tbl_art_gallery
+                                           where dt.CompareTo(g.toDate) <= 0 && dt.CompareTo(g.fromDate) >= 0
+                                           select new ArtGalleryViewModel()
+                                           {
+                                               fa_title = g.title,
+                                               eng_title = g.title,
+                                               fromHour = g.fromHour,
+                                               toHour = g.toHour,
+                                               fromDate = g.fromDate,
+                                               toDate = g.toDate,
+                                               description = g.description
+                                           }).FirstOrDefault();
+
+            return gallery;
         }
 
     }
