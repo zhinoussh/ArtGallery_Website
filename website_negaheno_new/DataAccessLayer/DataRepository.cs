@@ -154,9 +154,10 @@ namespace website_negaheno.DataAccessLayer
         public ArtGalleryViewModel get_gallery_in_date(string dt)
         {
             ArtGalleryViewModel gallery = (from g in db.tbl_art_gallery
-                                           where dt.CompareTo(g.toDate) <= 0 && dt.CompareTo(g.fromDate) >= 0
+                                           where dt.CompareTo(g.toDate.Substring(g.toDate.Length - 10, 10)) <= 0 && dt.CompareTo(g.fromDate.Substring(g.fromDate.Length - 10, 10)) >= 0
                                            select new ArtGalleryViewModel()
                                            {
+                                               GalleryId=g.ID,
                                                fa_title = g.title,
                                                eng_title = g.title,
                                                fromHour = g.fromHour,
@@ -166,6 +167,7 @@ namespace website_negaheno.DataAccessLayer
                                                description = g.description
                                            }).FirstOrDefault();
 
+            
             return gallery;
         }
 

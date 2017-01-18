@@ -266,10 +266,17 @@ body {
   direction: rtl;
 }
 .media-body h2 {
+  color: #cb282a;
   font-size: 16pt;
 }
 .media-body h3 {
-  font-size: 12pt;
+  font-size: 11pt;
+  color: #727272;
+  line-height: 2;
+}
+.gallery_img {
+  width: 200px;
+  height: 200px;
 }
 #footer {
   padding: 30px 0 30px 0;

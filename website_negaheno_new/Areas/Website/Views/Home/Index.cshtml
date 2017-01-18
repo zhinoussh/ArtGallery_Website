@@ -1,4 +1,4 @@
-﻿@model List<ArtGalleryViewModel>
+﻿@model website_negaheno.ViewModels.HomePageViewModel
 @{
     ViewBag.Title = "صفحه اصلی";
     Layout = "~/Areas/Website/Views/Shared/_Layout.cshtml";
@@ -112,7 +112,7 @@
 <section id="content">
     <div class="container">
         <div class="row">
-         @{Html.RenderPartial("_PartialCurrentGallery", Model);}
+         @{Html.RenderPartial("_PartialCurrentGallery",Model.lst_current_gallery );}
         </div>
     </div>
 </section>

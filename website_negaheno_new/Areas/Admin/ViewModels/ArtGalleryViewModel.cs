@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace website_negaheno
+namespace website_negaheno.Areas.Admin.ViewModels
 {
     public class ArtGalleryViewModel
     {

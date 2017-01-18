@@ -45,7 +45,7 @@ namespace website_negaheno.DataAccessLayer
             {
                 lst_gallery = FilterGalleryList(lst_gallery, search_pagination_vm.filter);
 
-                lst_gallery = lst_gallery.Select((x, Index) => new ArtGalleryViewModel()
+                lst_gallery = lst_gallery.OrderBy(x=>x.fromDate).Select((x, Index) => new ArtGalleryViewModel()
                                         {
                                             rowNumber = Index + 1,
                                             GalleryId = x.GalleryId,

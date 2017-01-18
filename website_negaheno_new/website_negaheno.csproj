@@ -191,12 +191,13 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ArtGalleryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
-    <Compile Include="ViewModels\ArtGalleryViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\ArtGalleryViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryDetailViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryImagesViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryPageViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ImageViewModel.cs" />
-    <Compile Include="ViewModels\SearchPaginationViewModel.cs" />
+    <Compile Include="ViewModels\HomePageViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\SearchPaginationViewModel.cs" />
     <Compile Include="Areas\EnglishWebsite\EnglishWebsiteAreaRegistration.cs" />
     <Compile Include="Areas\Website\WebsiteAreaRegistration.cs" />
     <Compile Include="Areas\Account\Controllers\AccountController.cs" />

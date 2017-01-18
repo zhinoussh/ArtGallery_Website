@@ -1,7 +1,6 @@
-﻿@model List<ArtGalleryViewModel>
-@{
-    Layout = null;
-}
+﻿@using website_negaheno.Areas.Admin.ViewModels
+@model List<ArtGalleryViewModel>
+@{Layout = null;}
 <div class="col-sm-12">
     <div class="tab-wrap">
         <div class="media">
@@ -15,10 +14,13 @@
             </div>
             <div class="parrent media-body">
                 <div class="tab-content">
+                @if(Model!=null && Model[0]!=null && Model[1]!=null && Model[2]!=null && Model[3]!=null)
+                { 
                     <div class="tab-pane fade in active" id="tab1">
                         <div class="media">
                             <div class="pull-left">
-                                <img class="img-responsive" src='@String.Concat("~/Upload/gallery_",@Model[0].GalleryId,"/poster.jpg")'>
+                                <img class="img-responsive gallery_img" src='@String.Concat("/Upload/gallery_",Model[0].GalleryId,"/poster.jpg")'
+                                     onerror='this.onerror=null;this.src="/images/art1.png";'>
                             </div>
                             <div class="media-body">
                                 <h2>@Model[0].fa_title</h2>
@@ -35,7 +37,8 @@
                     <div class="tab-pane fade" id="tab2">
                         <div class="media">
                             <div class="pull-left">
-                                <img class="img-responsive" src='@String.Concat("~/Upload/gallery_",@Model[1].GalleryId,"/poster.jpg")'>
+                                <img class="img-responsive gallery_img" src='@String.Concat("/Upload/gallery_",Model[1].GalleryId,"/poster.jpg")'
+                                     onerror='this.onerror=null;this.src="/images/art1.png";'>
                             </div>
                             <div class="media-body">
                                 <h2>@Model[1].fa_title</h2>
@@ -52,7 +55,8 @@
                     <div class="tab-pane fade" id="tab3">
                         <div class="media">
                             <div class="pull-left">
-                                <img class="img-responsive" src='@String.Concat("~/Upload/gallery_",@Model[2].GalleryId,"/poster.jpg")'>
+                                <img class="img-responsive gallery_img" src='@String.Concat("/Upload/gallery_",Model[2].GalleryId,"/poster.jpg")'
+                                     onerror='this.onerror=null;this.src="/images/art1.png";'>
                             </div>
                             <div class="media-body">
                                 <h2>@Model[2].fa_title</h2>
@@ -69,7 +73,8 @@
                     <div class="tab-pane fade" id="tab4">
                         <div class="media">
                             <div class="pull-left">
-                                <img class="img-responsive" src='@String.Concat("~/Upload/gallery_",@Model[3].GalleryId,"/poster.jpg")'>
+                                <img class="img-responsive gallery_img" src='@String.Concat("/Upload/gallery_",Model[3].GalleryId,"/poster.jpg")'
+                                     onerror='this.onerror=null;this.src="/images/art1.png";'>
                             </div>
                             <div class="media-body">
                                 <h2>@Model[3].fa_title</h2>
@@ -82,7 +87,7 @@
                             </div>
                         </div>
                     </div>
-
+                }
                 </div> <!--/.tab-content-->
             </div> <!--/.media-body-->
         </div> <!--/.media-->

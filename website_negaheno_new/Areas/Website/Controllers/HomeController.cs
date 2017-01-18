@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using website_negaheno.Areas.Admin.ViewModels;
 using website_negaheno.DataAccessLayer;
+using website_negaheno.ViewModels;
 
 namespace website_negaheno.Areas.Website.Controllers
 {
@@ -19,8 +19,9 @@ namespace website_negaheno.Areas.Website.Controllers
 
         public ActionResult Index()
         {
-            List<ArtGalleryViewModel> lst_current_galleies= NegaheNoService.Get_Current_Gallery();
-            return View(lst_current_galleies);
+            HomePageViewModel vm = new HomePageViewModel();
+            vm.lst_current_gallery= NegaheNoService.Get_Current_Gallery();
+            return View(vm);
         }
         
         public ActionResult About()
