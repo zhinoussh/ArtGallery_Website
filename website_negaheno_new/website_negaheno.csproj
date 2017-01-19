@@ -196,7 +196,9 @@
     <Compile Include="Areas\Admin\ViewModels\GalleryImagesViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryPageViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ImageViewModel.cs" />
-    <Compile Include="ViewModels\HomePageViewModel.cs" />
+    <Compile Include="Areas\Website\Controllers\GalleryController.cs" />
+    <Compile Include="Areas\Website\ViewModels\GalleryDetailPageViewModel.cs" />
+    <Compile Include="Areas\Website\ViewModels\HomePageViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\SearchPaginationViewModel.cs" />
     <Compile Include="Areas\EnglishWebsite\EnglishWebsiteAreaRegistration.cs" />
     <Compile Include="Areas\Website\WebsiteAreaRegistration.cs" />
@@ -361,6 +363,12 @@
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialDeleteImage.cshtml" />
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialImage.cshtml" />
     <Content Include="Areas\Website\Views\Home\_PartialCurrentGallery.cshtml" />
+    <Content Include="Areas\Website\Views\Gallery\GalleryDetail.cshtml" />
+    <Content Include="Areas\Website\Views\Gallery\_PartialGallerySlider.cshtml" />
+    <Content Include="Areas\Website\Views\Gallery\_PartialGalleryDetail.cshtml" />
+    <Content Include="Areas\Website\Views\Gallery\Index.cshtml" />
+    <Content Include="Areas\Website\Views\Gallery\_PartialPreviousGalleryList.cshtml" />
+    <Content Include="Areas\Admin\Views\Profile\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Zhinous.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="images\logo.jpg" />
@@ -425,7 +433,6 @@
     <Folder Include="Areas\Account\Models\" />
     <Folder Include="Areas\Account\Views\Shared\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Profile\" />
     <Folder Include="Areas\EnglishWebsite\Controllers\" />
     <Folder Include="Areas\EnglishWebsite\Models\" />
     <Folder Include="Areas\EnglishWebsite\Views\Shared\" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using website_negaheno.Areas.Admin.ViewModels;
 
-namespace website_negaheno.ViewModels
+namespace website_negaheno.Areas.Website.ViewModels
 {
     public class HomePageViewModel
     {

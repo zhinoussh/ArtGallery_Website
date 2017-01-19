@@ -6,6 +6,7 @@ using website_negaheno.Areas.Admin.ViewModels;
 using PagedList;
 using System.Web.Mvc;
 using System.IO;
+using website_negaheno.Areas.Website.ViewModels;
 
 namespace website_negaheno.DataAccessLayer
 {
@@ -234,20 +235,30 @@ namespace website_negaheno.DataAccessLayer
                  File.Delete(file_path);
         }
 
-        public List<ArtGalleryViewModel> Get_Current_Gallery()
+        public HomePageViewModel Get_HomePage()
         {
-            string today = get_today(0);
-            string next_week = get_today(7);
-            string next_2week = get_today(14);
-            string next_3week = get_today(21);
+            ArtGalleryViewModel week_gallery = DataLayer.get_gallery_in_date(get_today(0));
+            ArtGalleryViewModel next_week_gallery = DataLayer.get_gallery_in_date(get_today(7));
+            ArtGalleryViewModel next_2week_gallery = DataLayer.get_gallery_in_date(get_today(14));
+            ArtGalleryViewModel next_3week_gallery = DataLayer.get_gallery_in_date(get_today(21));
 
-            List<ArtGalleryViewModel> vm = new List<ArtGalleryViewModel>();
-            vm.Add(DataLayer.get_gallery_in_date(today));
-            vm.Add(DataLayer.get_gallery_in_date(next_week));
-            vm.Add(DataLayer.get_gallery_in_date(next_2week));
-            vm.Add(DataLayer.get_gallery_in_date(next_3week));
+            List<ArtGalleryViewModel> lst_gallery = new List<ArtGalleryViewModel>();
 
-            return vm;
+            if (week_gallery != null)
+                lst_gallery.Add(week_gallery);
+            
+            if (next_week_gallery != null)
+                lst_gallery.Add(next_week_gallery);
+           
+            if (next_week_gallery != null)
+                lst_gallery.Add(next_2week_gallery);
+           
+            if (next_3week_gallery != null)
+                lst_gallery.Add(next_3week_gallery);
+
+            HomePageViewModel vm_page = new HomePageViewModel();
+            vm_page.lst_current_gallery = lst_gallery;
+            return vm_page;
         }
 
         private SearchPaginationViewModel Get_SearchPagination_Params(Controller ctrl)
@@ -276,7 +287,11 @@ namespace website_negaheno.DataAccessLayer
 
         private string get_today(int addDays)
         {
-            DateTime dt_gallery = DateTime.Now.AddDays(addDays);
+            DateTime dt_now = DateTime.Now;
+            if (dt_now.DayOfWeek == DayOfWeek.Thursday)
+                dt_now=dt_now.AddDays(-1);
+            DateTime dt_gallery = dt_now.AddDays(addDays);
+           
             System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
             string month = pc.GetMonth(dt_gallery) + "";
             if (month.Length == 1)
@@ -288,6 +303,59 @@ namespace website_negaheno.DataAccessLayer
 
             return pc.GetYear(dt_gallery) + "/" + month + "/" + day;
         }
+
+        /*********Website Area*******/
+
+        public GalleryDetailPageViewModel Get_GalleryDetail_Page(int id) {
+            
+            GalleryDetailPageViewModel vm_page = new GalleryDetailPageViewModel();
+            
+            GalleryDetailViewModel vm_gallery = new GalleryDetailViewModel();
+            ArtGalleryViewModel gallery = DataLayer.get_ArtGallery_byID(id);
+
+            vm_gallery.fa_title = gallery.fa_title;
+            vm_gallery.openning_hours = gallery.fromHour + " - " + gallery.toHour;
+            vm_gallery.visit_from = gallery.fromDate;
+            vm_gallery.visit_to =  gallery.toDate;
+            vm_gallery.description = gallery.description;
+            vm_gallery.poster_path = "/Upload/gallery_" + id + "/poster.jpg";
+            vm_gallery.GalleryId = id;
+
+            List<string> str_images= DataLayer.get_gallery_images(id);
+
+            for (int i = 0; i < str_images.Count; i++)
+            {
+                str_images[i] = ("gallery_" + id + "/" + str_images[i]);
+            }
+
+            vm_page.accordion_detail = vm_gallery;
+            vm_page.photos = str_images;
+
+            return vm_page;
+
+        }
+
+        public IPagedList<GalleryDetailViewModel> Get_PreviousGalleryList(int? page) { 
+        
+            int currentPage=page.HasValue?page.Value:1;
+
+            List<ArtGalleryViewModel> lst_gallery = DataLayer.Get_ArtGalleryList();
+            List<GalleryDetailViewModel> lst_gallery_detail = lst_gallery.Select(x => new GalleryDetailViewModel()
+            {
+                GalleryId=x.GalleryId,
+                fa_title = x.fa_title.Length >= 20 ? x.fa_title.Substring(0, 20) + "..." : x.fa_title,
+                visit_from = x.fromDate,
+                visit_to = x.toDate,
+                openning_hours = x.fromHour + " - " + x.toHour,
+                poster_path="/Upload/gallery_"+x.GalleryId+"/poster.jpg"
+            }).OrderBy(x=>x.visit_from).ToList();
+
+            IPagedList<GalleryDetailViewModel> paged_list_gallery = lst_gallery_detail.ToPagedList(currentPage, pagesize);
+
+            return paged_list_gallery;
+        }
+
+
 
     }
 }

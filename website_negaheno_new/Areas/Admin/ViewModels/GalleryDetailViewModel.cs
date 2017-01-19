@@ -7,6 +7,7 @@ namespace website_negaheno.Areas.Admin.ViewModels
 {
     public class GalleryDetailViewModel
     {
+        public int GalleryId { get; set; }
         public string eng_title { get; set; }
         public string fa_title { get; set; }
         public string description { get; set; }

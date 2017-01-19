@@ -1,0 +1,65 @@
+﻿@model List<string>
+@{
+    Layout = null;
+}
+@if (Model != null && Model.Count > 0)
+{
+    <!--Photo Slider -->
+    <div class="well">
+        <div class=" col-xs-12 nopadding" id="slider">
+            <!-- Top part of the slider -->
+            <div class="row ">
+                <div class="col-xs-8 col-xs-offset-2" id="carousel-bounding-box">
+                    <div class="carousel slide" id="GalleryCarousel">
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item" data-slide-number="0">
+                                <img src='@Url.Content("../../../Upload/" + Model[0])' class="slider-img-sm">
+                            </div>
+
+                            @for (int i = 1; i < Model.Count; i++)
+                            {
+                                <div class="item" data-slide-number="@i">
+                                    <img src='@Url.Content("../../../Upload/" + Model[i])' class="slider-img-sm">
+                                </div>
+                            }
+
+                        </div><!-- Carousel nav -->
+                        <a class="left carousel-control" href="#GalleryCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#GalleryCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row hidden-xs" id="slider-thumbs">
+            <div class=" col-xs-12">
+                <!-- Bottom switcher of slider -->
+                    @for (int i = 1; i < Model.Count; i++)
+                    {
+                        <div class="col-xs-3 topbuffer-10">
+                            <a class="img-thumbnail" id="@String.Format("carousel-selector-{0}",@i)">
+                                <img src='@Url.Content("../../../Upload/" +Model[i])' class="slider-img-xs">
+                            </a>
+                        </div>
+                    }
+
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="col-xs-12 topbuffer-20 nopadding">
+        <div class="well well-sm well_noResult">
+           گالری عکس برای این نمایشگاه موجود نیست
+        </div>
+    </div>
+}

@@ -868,7 +868,7 @@ a.accordion-toggle  i{
 }
 
 .nav-tabs>li{
-  margin-bottom: 0px;
+  margin-bottom: 0;
   border-bottom: 1px solid #e6e6e6;
   width:200px
 
@@ -883,7 +883,6 @@ a.accordion-toggle  i{
   background: #f5f5f5;
   color: #666;
   font-family:'B Yekan';
-      
   border-radius: 0;
   border: 0 none;
   line-height: 24px;

@@ -308,7 +308,7 @@ body {
             margin-right: 0;
             padding: 13px 15px;
             text-align: center;
-
+            height:60px;
             &:hover {
                 .SiteBGFont();
             }
@@ -340,7 +340,7 @@ body {
     height: auto;
     border-style: solid;
     border-color: transparent transparent transparent @SiteRedColor;
-    border-width: 25px 22px;
+    border-width: 30px 30px;
     right: -44px;
     top: 0;
 }
@@ -359,18 +359,23 @@ body {
     & h2 {
         color:darken(@SiteRedColor,5%);
         font-size: 16pt;
+         
     }
+    & a:hover{
+             text-decoration:none !important;
+        color:darken(@SiteRedColor,5%);
 
+         }
     & h3 {
-        font-size: 11pt;
-        color:darken(@BlueGrayColor,50%);
+        font-size: 10.5pt;
+        color:darken(@BlueGrayColor,60%);
         line-height:2;
     }
 }
 
 .gallery_img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height:200px;
 }
 
 #footer {
@@ -590,6 +595,9 @@ a {
 .topbuffer-100 {
     .marginTop(100px);
 }
+.topbuffer-200 {
+    .marginTop(200px);
+}
 
 .nopadding {
     .nopadding();
@@ -600,4 +608,63 @@ a {
     height: 200px;
     z-index: 9;
     position: relative;
+}
+
+/*Gallery Detail Page*/
+.hide-bullets {
+list-style:none;
+margin-left: -40px;
+margin-top:20px;
+}
+.accordion-toggle:hover,.accordion-toggle:focus{
+    text-decoration:none;
+}
+
+.panel-title {
+font-size:10pt;
+direction:rtl;
+}
+.slider-img-sm{
+    width:800px;
+    height:500px;
+    max-height:500px;
+}
+.slider-img-xs{
+    width:200px;
+    height:100px;
+    max-height:100px;
+}
+
+.poster-img{
+    width:350px;
+    height:400px;
+    max-height:400px;
+}
+
+.WellCommonTraits(@bgColor) {
+    background-color: @bgColor !important;
+    border: 1px solid darken(@bgColor,10%);
+    color: darken(@bgColor,50%);
+    text-align: right;
+    width:100%;
+
+    &:hover{
+        box-shadow:darken(@bgColor,10%) 5px 5px 5px;
+    }
+
+}
+
+.well_noResult{
+  .WellCommonTraits(@BlueGrayColor);
+}
+
+.well-gallery
+{
+  .WellCommonTraits(@BlueGrayColor);
+  height:250px;
+}
+
+.previous-gallery-img{
+    width:200px;
+    height:210px;
 }

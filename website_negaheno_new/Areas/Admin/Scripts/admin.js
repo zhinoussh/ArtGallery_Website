@@ -222,3 +222,12 @@ $(document).on('click', '#btn_zoom_image', function () {
         $("#modal_container").modal('show');
     });
 });
+
+function Success_ProfileChange(reslut) {
+
+    if (result.msg)
+    {
+        $("#alert_success").html(localStorage.getItem("msg"));
+        $("#div_alert").slideDown(500);
+    }
+}

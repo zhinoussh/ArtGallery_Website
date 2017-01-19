@@ -1,0 +1,33 @@
+﻿@model website_negaheno.Areas.Website.ViewModels.GalleryDetailPageViewModel
+@{
+    ViewBag.Title = "شرح نمایشگاه";
+    Layout = "~/Areas/Website/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-12 topbuffer-50">
+
+
+            <div class="col-xs-6  col-xs-offset-2">
+                <!-- Accordion Details-->
+                @{Html.RenderPartial("_PartialGalleryDetail", Model.accordion_detail);}
+                <!-- END Accordion Details-->
+
+            </div>
+
+            <div class="col-xs-4">
+                <img src='@Model.accordion_detail.poster_path'
+                     class="poster-img img-rounded" onerror='this.onerror=null;this.src="/images/art1.png";'>
+            </div>
+
+
+                <!-- Photo Album-->
+                <div class="col-xs-12 topbuffer-10 ">
+                    @{Html.RenderPartial("_PartialGallerySlider", Model.photos);}
+                </div>
+                <!-- END Photo Album-->
+            </div>
+    </div>
+</div>

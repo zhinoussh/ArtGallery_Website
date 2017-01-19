@@ -1,6 +1,8 @@
 ﻿@using website_negaheno.Areas.Admin.ViewModels
 @model List<ArtGalleryViewModel>
 @{Layout = null;}
+
+
 <div class="col-sm-12">
     <div class="tab-wrap">
         <div class="media">
@@ -13,80 +15,34 @@
                 </ul>
             </div>
             <div class="parrent media-body">
+               
                 <div class="tab-content">
-                @if(Model!=null && Model[0]!=null && Model[1]!=null && Model[2]!=null && Model[3]!=null)
-                { 
-                    <div class="tab-pane fade in active" id="tab1">
-                        <div class="media">
-                            <div class="pull-left">
-                                <img class="img-responsive gallery_img" src='@String.Concat("/Upload/gallery_",Model[0].GalleryId,"/poster.jpg")'
-                                     onerror='this.onerror=null;this.src="/images/art1.png";'>
-                            </div>
-                            <div class="media-body">
-                                <h2>@Model[0].fa_title</h2>
-                                <h3>
-                                    روزهای بازدید: @Model[0].fromDate تا @Model[0].toDate
-                                    <br />
-                                    ساعات بازدید: @Model[0].fromHour تا @Model[0].toHour
-                                </h3>
-                                <p>@Model[0].description</p>
+                @if (Model != null && Model.Count>0)
+                {
+                    for (int i = 0; i < Model.Count; i++)
+                    {
+                        <div class='@String.Concat("tab-pane fade ", i==0 ? " in active": "" )' id='@String.Concat("tab",i+1)'>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img class="img-responsive gallery_img" src='@String.Concat("/Upload/gallery_", Model[i].GalleryId, "/poster.jpg")'
+                                         onerror='this.onerror=null;this.src="/images/art1.png";'>
+                                </div>
+                                <div class="media-body">
+                                    <h2>
+                                        @Html.ActionLink(Model[i].fa_title, "GalleryDetail", "Gallery"
+                                    , new { area = "Website", id = Model[i].GalleryId }, null)
+                                    </h2>
+                                    <h3>
+                                        روزهای بازدید: @Model[i].fromDate تا @Model[i].toDate
+                                        <br />
+                                        ساعات بازدید: @Model[i].fromHour تا @Model[i].toHour
+                                    </h3>
+                                    <p>@Model[i].description</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
 
-                    <div class="tab-pane fade" id="tab2">
-                        <div class="media">
-                            <div class="pull-left">
-                                <img class="img-responsive gallery_img" src='@String.Concat("/Upload/gallery_",Model[1].GalleryId,"/poster.jpg")'
-                                     onerror='this.onerror=null;this.src="/images/art1.png";'>
-                            </div>
-                            <div class="media-body">
-                                <h2>@Model[1].fa_title</h2>
-                                <h3>
-                                    روزهای بازدید: @Model[1].fromDate تا @Model[1].toDate
-                                    <br />
-                                    ساعات بازدید: @Model[1].fromHour تا @Model[1].toHour
-                                </h3>
-                                <p>@Model[1].description</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="tab3">
-                        <div class="media">
-                            <div class="pull-left">
-                                <img class="img-responsive gallery_img" src='@String.Concat("/Upload/gallery_",Model[2].GalleryId,"/poster.jpg")'
-                                     onerror='this.onerror=null;this.src="/images/art1.png";'>
-                            </div>
-                            <div class="media-body">
-                                <h2>@Model[2].fa_title</h2>
-                                <h3>
-                                    روزهای بازدید: @Model[2].fromDate تا @Model[2].toDate
-                                    <br />
-                                    ساعات بازدید: @Model[2].fromHour تا @Model[2].toHour
-                                </h3>
-                                <p>@Model[2].description</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="tab4">
-                        <div class="media">
-                            <div class="pull-left">
-                                <img class="img-responsive gallery_img" src='@String.Concat("/Upload/gallery_",Model[3].GalleryId,"/poster.jpg")'
-                                     onerror='this.onerror=null;this.src="/images/art1.png";'>
-                            </div>
-                            <div class="media-body">
-                                <h2>@Model[3].fa_title</h2>
-                                <h3>
-                                    روزهای بازدید: @Model[3].fromDate تا @Model[3].toDate
-                                    <br />
-                                    ساعات بازدید: @Model[3].fromHour تا @Model[3].toHour
-                                </h3>
-                                <p>@Model[3].description</p>
-                            </div>
-                        </div>
-                    </div>
                 }
                 </div> <!--/.tab-content-->
             </div> <!--/.media-body-->

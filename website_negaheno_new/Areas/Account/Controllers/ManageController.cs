@@ -222,12 +222,14 @@ namespace website_negaheno.Areas.Account.Controllers
         // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ModelValidator]
         public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //   // return View(model);
+            //    return Json(new{msg=ModelState[0].})
+            //}
             var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
             if (result.Succeeded)
             {
@@ -239,7 +241,8 @@ namespace website_negaheno.Areas.Account.Controllers
                 return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
             }
             AddErrors(result);
-            return View(model);
+            //return View(model);
+            return Json(new { msg="Password changed successfully"});
         }
 
         //

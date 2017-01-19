@@ -1,0 +1,15 @@
+﻿@using PagedList;
+@using website_negaheno.Areas.Admin.ViewModels;
+@model IPagedList<GalleryDetailViewModel>
+@{
+    ViewBag.Title = " نمایشگاه های پیشین";
+    Layout = "~/Areas/Website/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 topbuffer-200" id="div_galleries">
+         @{Html.RenderPartial("_PartialPreviousGalleryList", Model);}
+        </div>
+            </div>
+        </div>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using website_negaheno.DataAccessLayer;
 using website_negaheno.Models;
 
 namespace website_negaheno.Areas.Admin.Controllers
@@ -10,11 +11,19 @@ namespace website_negaheno.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class ProfileController : Controller
     {
-        // GET: Admin/Profile
+        IServiceLayer NegaheNoService;
+
+        public ProfileController(IServiceLayer _service)
+        {
+            NegaheNoService = _service;
+        }
         public ActionResult Index()
         {
-            return View();
+            //ChangePasswordViewModel vm = NegaheNoService.Get_Profile(this);
+           return View();
         }
+
+      
 
   
 
