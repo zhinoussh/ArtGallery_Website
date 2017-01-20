@@ -22,7 +22,7 @@ namespace website_negaheno.DataAccessLayer
 
         ArtGalleryViewModel Get_Delete_Gallery(int? id, Controller ctrl);
 
-        void Post_Delete_Gallery(ArtGalleryViewModel vm);
+        void Post_Delete_Gallery(ArtGalleryViewModel vm, Controller ctrl);
 
         GalleryImagesViewModel Get_PartialPoster(int id, Controller ctrl);
         void Post_AddGalleryPoster(GalleryImagesViewModel vm,Controller ctrl);

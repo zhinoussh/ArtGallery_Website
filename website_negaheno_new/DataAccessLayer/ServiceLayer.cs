@@ -104,9 +104,12 @@ namespace website_negaheno.DataAccessLayer
             return vm;        
         }
 
-        public void Post_Delete_Gallery(ArtGalleryViewModel vm)
+        public void Post_Delete_Gallery(ArtGalleryViewModel vm, Controller ctrl)
         {
             DataLayer.Delet_ArtGallery(vm.GalleryId);
+            string gallery_dir = ctrl.Server.MapPath(@"~\Upload\gallery_" + vm.GalleryId);
+            if (Directory.Exists(gallery_dir))
+                Directory.Delete(gallery_dir, true);
         }
 
         public GalleryImagesViewModel Get_PartialPoster(int id, Controller ctrl)

@@ -65,7 +65,7 @@ namespace website_negaheno.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete_Gallery(ArtGalleryViewModel vm)
         {
-            NegahenoService.Post_Delete_Gallery(vm);
+            NegahenoService.Post_Delete_Gallery(vm,this);
             return Json(new { page_index = vm.filter_page.page, filter = vm.filter_page.filter+"" });
         }
 
