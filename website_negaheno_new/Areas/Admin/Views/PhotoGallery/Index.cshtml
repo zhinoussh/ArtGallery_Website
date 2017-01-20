@@ -1,0 +1,29 @@
+﻿@model website_negaheno.Areas.Admin.ViewModels.PhotoAlbumViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<div class="uploadSection">
+    <div class="col-xs-12">
+        @using (Ajax.BeginForm("", "", null, new AjaxOptions
+{
+    HttpMethod = "Post"
+    ,
+    InsertionMode = InsertionMode.ReplaceWith
+
+}, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.TextBoxFor(model => model.image, new { id = "photoAlbum", name = "photoAlbum[]", type = "file", @class = "file-loading" })
+
+            <div id="errorBlock" class="help-block"></div>
+            @Html.HiddenFor(model => model.page, new { id = "hd_page_index" })
+        }
+    </div>
+</div>
+<div id="div_photoGallery">
+    @{Html.RenderPartial("_PartialAlbumList", Model.photos);}
+</div>

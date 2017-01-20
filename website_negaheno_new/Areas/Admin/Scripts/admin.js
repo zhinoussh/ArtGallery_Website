@@ -34,6 +34,33 @@ $(document).ready(function(){
         location.href = "/Admin/ArtGallery/Images/"+response.galleryID+"?page=" + response.page_index;
 
     });
+
+    //SetUp_photoAlbum
+    $("#photoAlbum").fileinput({
+        uploadAsync: false,
+        uploadUrl: '/Admin/PhotoGallery/AddImage/',
+        maxFilePreviewSize: 10240,
+        dropZoneEnabled: false,
+        uploadExtraData: {
+            page: $('#hd_page_index').val(),
+            __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val()
+        },
+        browseClass: "btn btn-sm btn-success",
+        uploadClass: "btn btn-sm btn-upload",
+        removeClass: "btn btn-sm btn-remove",
+        removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+        showZoom: false,
+        fileActionSettings: {
+            showDrag: false,
+            showRemove: false,
+            showZoom: false,
+        }
+    }).on('filebatchuploadsuccess', function (event, data) {
+        var response = data.response;
+        localStorage.setItem("msg", response.msg);
+        location.href = "/Admin/PhotoGallery/Index?page=" + response.page_index;
+
+    });
     
 
 });
@@ -223,11 +250,30 @@ $(document).on('click', '#btn_zoom_image', function () {
     });
 });
 
-function Success_ProfileChange(reslut) {
+$(document).on('click', '#btn_remove_photo_album', function () {
+
+    var img = $('#img_path').val();
+
+    $.get("/Admin/PhotoGallery/DeleteImage?img_path=" + img, function (result) {
+        $("#modal_container").find(".modal-content").html(result);
+        $("#modal_container").modal('show');
+    });
+});
+
+function SuccessAjax_DeleteImage(result) {
+    localStorage.setItem("msg", result.msg);
+    location.href = "/Admin/ArtGallery/Images/" + result.galleryID + "?page=" + result.page_index;
+}
+function SuccessAjax_DeletePhotoAlbum(result) {
+    localStorage.setItem("msg", result.msg);
+    location.href = "/Admin/PhotoGallery/Index?page=" + result.page_index;
+}
+
+function Success_ProfileChange(result) {
 
     if (result.msg)
     {
-        $("#alert_success").html(localStorage.getItem("msg"));
+        $("#alert_success").html(result.msg);
         $("#div_alert").slideDown(500);
     }
 }

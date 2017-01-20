@@ -238,11 +238,14 @@ namespace website_negaheno.Areas.Account.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return Json(new { msg = "Password changed successfully" });
+
+                //return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
             }
             AddErrors(result);
+            
             //return View(model);
-            return Json(new { msg="Password changed successfully"});
+            return Json(new { msg = result.Errors.First()+"" });
         }
 
         //

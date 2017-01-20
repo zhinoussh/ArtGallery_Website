@@ -131,7 +131,6 @@ namespace website_negaheno.DataAccessLayer
         }
         public ImageViewModel get_photo_by_path(string img_path)
         {
-
             ImageViewModel vm = (from p in db.tbl_art_gallery_photo.Where(x => x.photo_path == img_path)
                                  select new ImageViewModel()
                                  {
@@ -171,5 +170,55 @@ namespace website_negaheno.DataAccessLayer
             return gallery;
         }
 
+        public List<string> get_photoAlbum_images() {
+
+            List<string> images = (from i in db.tbl_photo_album
+                                   select i.file_path).ToList();
+
+            return images;
+        }
+        public ImageViewModel get_photoInalbum_by_path(string img_path)
+        {
+            ImageViewModel vm = (from p in db.tbl_photo_album.Where(x => x.file_path == img_path)
+                                 select new ImageViewModel()
+                                 {
+                                     ImageId = p.ID
+                                 }).FirstOrDefault();
+            return vm;
+        }
+
+        public string get_lastAlbumPhoto_path() {
+            string photo_path = "";
+            tbl_photo_album last_photo = db.tbl_photo_album
+                                              .OrderByDescending(x => x.ID).FirstOrDefault();
+
+            if (last_photo != null)
+                photo_path = last_photo.file_path;
+
+            return photo_path;
+
+        }
+        
+        public void save_album_image(string img_path) {
+            tbl_photo_album photo = new tbl_photo_album()
+            {
+                file_path = img_path
+            };
+
+            db.tbl_photo_album.Add(photo);
+            db.SaveChanges();
+        }
+        public string delete_album_image(int id) {
+
+            tbl_photo_album photo = db.tbl_photo_album.Find(id);
+            string filepath = photo.file_path;
+            if (photo != null)
+            {
+                db.tbl_photo_album.Remove(photo);
+                db.SaveChanges();
+            }
+
+            return filepath;
+        }
     }
 }

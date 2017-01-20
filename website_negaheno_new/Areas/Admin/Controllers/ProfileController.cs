@@ -19,7 +19,6 @@ namespace website_negaheno.Areas.Admin.Controllers
         }
         public ActionResult Index()
         {
-            //ChangePasswordViewModel vm = NegaheNoService.Get_Profile(this);
            return View();
         }
 

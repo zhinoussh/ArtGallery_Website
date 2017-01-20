@@ -190,12 +190,14 @@
     <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ArtGalleryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PhotoGalleryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Admin\ViewModels\ArtGalleryViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryDetailViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryImagesViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GalleryPageViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ImageViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\PhotoAlbumViewModel.cs" />
     <Compile Include="Areas\Website\Controllers\GalleryController.cs" />
     <Compile Include="Areas\Website\ViewModels\GalleryDetailPageViewModel.cs" />
     <Compile Include="Areas\Website\ViewModels\HomePageViewModel.cs" />
@@ -219,9 +221,9 @@
     </Compile>
     <Compile Include="Helpers\Bootstrapper.cs" />
     <Compile Include="FilterAttributes\ModelValidatorAttribute.cs" />
-    <Compile Include="Migrations\201701160812331_add_tbl_photo.cs" />
-    <Compile Include="Migrations\201701160812331_add_tbl_photo.Designer.cs">
-      <DependentUpon>201701160812331_add_tbl_photo.cs</DependentUpon>
+    <Compile Include="Migrations\201701191344022_add_photoAlbum_tbl.cs" />
+    <Compile Include="Migrations\201701191344022_add_photoAlbum_tbl.Designer.cs">
+      <DependentUpon>201701191344022_add_photoAlbum_tbl.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Configuration_Identity.cs" />
@@ -230,6 +232,7 @@
     <Compile Include="Areas\Account\ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Areas\Account\ViewModels\ManageViewModels.cs" />
+    <Compile Include="Models\tbl_photo_album.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -361,7 +364,7 @@
     <Content Include="Areas\Admin\Views\ArtGallery\Images.cshtml" />
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialImagesList.cshtml" />
     <Content Include="Areas\Admin\Views\ArtGallery\_PartialDeleteImage.cshtml" />
-    <Content Include="Areas\Admin\Views\ArtGallery\_PartialImage.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PartialImage.cshtml" />
     <Content Include="Areas\Website\Views\Home\_PartialCurrentGallery.cshtml" />
     <Content Include="Areas\Website\Views\Gallery\GalleryDetail.cshtml" />
     <Content Include="Areas\Website\Views\Gallery\_PartialGallerySlider.cshtml" />
@@ -369,6 +372,9 @@
     <Content Include="Areas\Website\Views\Gallery\Index.cshtml" />
     <Content Include="Areas\Website\Views\Gallery\_PartialPreviousGalleryList.cshtml" />
     <Content Include="Areas\Admin\Views\Profile\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PhotoGallery\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PhotoGallery\_PartialAlbumList.cshtml" />
+    <Content Include="Areas\Admin\Views\PhotoGallery\_PartialDeletePhotoAlbum.cshtml" />
     <None Include="Properties\PublishProfiles\Zhinous.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="images\logo.jpg" />
@@ -445,8 +451,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701160812331_add_tbl_photo.resx">
-      <DependentUpon>201701160812331_add_tbl_photo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701191344022_add_photoAlbum_tbl.resx">
+      <DependentUpon>201701191344022_add_photoAlbum_tbl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

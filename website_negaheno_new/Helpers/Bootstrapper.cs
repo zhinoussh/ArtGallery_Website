@@ -34,6 +34,7 @@ namespace website_negaheno.Helpers
         public static void RegisterTypes(IUnityContainer container)
         {
             container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<ManageController>(new InjectionConstructor());
         }
     }  
 }

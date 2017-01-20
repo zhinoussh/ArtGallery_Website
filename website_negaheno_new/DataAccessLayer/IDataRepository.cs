@@ -20,5 +20,12 @@ namespace website_negaheno.DataAccessLayer
         ImageViewModel get_photo_by_path(string img_path);
         string delete_gallery_image(int id);
         ArtGalleryViewModel get_gallery_in_date(string dt);
+
+        List<string> get_photoAlbum_images();
+        ImageViewModel get_photoInalbum_by_path(string img_path);
+
+        string get_lastAlbumPhoto_path();
+        void save_album_image(string img_path);
+        string delete_album_image(int id);
     }
 }

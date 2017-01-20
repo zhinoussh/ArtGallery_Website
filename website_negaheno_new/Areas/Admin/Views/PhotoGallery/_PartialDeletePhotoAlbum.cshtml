@@ -4,18 +4,18 @@
     Layout = null;
 }
 
-@using (Ajax.BeginForm("DeleteImage", "ArtGallery", new { area = "Admin" }, new AjaxOptions
+@using (Ajax.BeginForm("DeleteImage", "PhotoGallery", new { area = "Admin" }, new AjaxOptions
                             {
                                 HttpMethod = "Post",
-                                OnSuccess = "SuccessAjax_DeleteImage"
+                                OnSuccess = "SuccessAjax_DeletePhotoAlbum"
                             }))
 {
     @Html.AntiForgeryToken()
 
     @Html.HiddenFor(model => model.page)
     @Html.HiddenFor(model => model.ImageId)
-    @Html.HiddenFor(model=>model.GalleryId)
-    
+    @Html.HiddenFor(model => model.GalleryId)
+
     <div class="modal-header modal-header-danger">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
         <i class="fa fa-trash"></i> Delete Image
