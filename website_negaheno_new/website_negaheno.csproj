@@ -221,10 +221,6 @@
     </Compile>
     <Compile Include="Helpers\Bootstrapper.cs" />
     <Compile Include="FilterAttributes\ModelValidatorAttribute.cs" />
-    <Compile Include="Migrations\201701191344022_add_photoAlbum_tbl.cs" />
-    <Compile Include="Migrations\201701191344022_add_photoAlbum_tbl.Designer.cs">
-      <DependentUpon>201701191344022_add_photoAlbum_tbl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Configuration_Identity.cs" />
     <Compile Include="Models\tbl_art_galery_photo.cs" />
@@ -450,11 +446,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701191344022_add_photoAlbum_tbl.resx">
-      <DependentUpon>201701191344022_add_photoAlbum_tbl.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

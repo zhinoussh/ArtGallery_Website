@@ -38,11 +38,11 @@ namespace website_negaheno.DataAccessLayer
             ctrl.TempData["filter"] = search_pagination_vm.filter;
 
             GalleryPageViewModel page_vm = new GalleryPageViewModel();
-            IPagedList<ArtGalleryViewModel> paged_list_artGallery = null;
+            IPagedList<ArtGalleryViewModel> paged_list_artGallery=null;
 
             List<ArtGalleryViewModel> lst_gallery = DataLayer.Get_ArtGalleryList();
 
-            if (lst_gallery != null && lst_gallery.Count > 0)
+            if (lst_gallery != null)
             {
                 lst_gallery = FilterGalleryList(lst_gallery, search_pagination_vm.filter);
 
