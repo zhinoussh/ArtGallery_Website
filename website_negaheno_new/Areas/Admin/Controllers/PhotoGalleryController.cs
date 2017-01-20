@@ -49,10 +49,5 @@ namespace website_negaheno.Areas.Admin.Controllers
             return Json(new { msg = "image deleted successfully!", page_index = vm.page});
         }
 
-        [HttpGet]
-        public ActionResult Get_ZoomImage(string img_path)
-        {
-            return PartialView("_PartialImage", img_path);
-        }
     }
 }

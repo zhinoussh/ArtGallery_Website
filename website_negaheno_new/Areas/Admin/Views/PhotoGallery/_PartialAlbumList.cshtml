@@ -19,11 +19,10 @@
                 </div>
                 <div class="col-xs-12 nopadding topbuffer-10">
                     <div class="col-xs-2 nopadding">
-                        @Html.Hidden("img_path", Model[i])
-                        @Html.BootstrapButton("<i class='fa fa-trash fa-lg'></i>", "btn-trash", "btn_remove_photo_album", HtmlCommonProperty.ButtonType.button, "Delete Image")
+                        @Html.BootstrapButton("<i class='fa fa-trash fa-lg'></i>", "btn-trash", "btn_remove_photo_album", HtmlCommonProperty.ButtonType.button, "Delete Image", new { data_img = Model[i] })
                     </div>
                     <div class="col-xs-1  nopadding">
-                        @Html.BootstrapButton("<i class='glyphicon glyphicon-zoom-in'></i>", "btn-zoom", "btn_zoom_image", HtmlCommonProperty.ButtonType.button, "Zoom Image")
+                        @Html.BootstrapButton("<i class='glyphicon glyphicon-zoom-in'></i>", "btn-zoom", "btn_zoom_image", HtmlCommonProperty.ButtonType.button, "Zoom Image", new { data_img = Model[i] })
                     </div>
                 </div>
             </div>

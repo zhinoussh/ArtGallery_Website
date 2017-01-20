@@ -1,0 +1,19 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "PhotoGallery";
+    Layout = "~/Areas/Website/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="pull-right">آلبوم عکس نگاه نو</h2>
+
+        </div>
+        <!-- Photo Album-->
+        <div class="col-xs-12 topbuffer-100 ">
+            @{Html.RenderPartial("_PartialGallerySlider", Model);}
+        </div>
+        <!-- END Photo Album-->
+    </div>
+</div>

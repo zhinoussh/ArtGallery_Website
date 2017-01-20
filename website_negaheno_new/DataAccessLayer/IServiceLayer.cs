@@ -43,5 +43,7 @@ namespace website_negaheno.DataAccessLayer
         GalleryDetailPageViewModel Get_GalleryDetail_Page(int id);
         IPagedList<GalleryDetailViewModel> Get_PreviousGalleryList(int? page);
 
+        List<string> Get_PhotoGAllery();
+ 
     }
 }

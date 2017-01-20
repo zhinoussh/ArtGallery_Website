@@ -367,7 +367,7 @@
     <Content Include="Areas\Admin\Views\Shared\_PartialImage.cshtml" />
     <Content Include="Areas\Website\Views\Home\_PartialCurrentGallery.cshtml" />
     <Content Include="Areas\Website\Views\Gallery\GalleryDetail.cshtml" />
-    <Content Include="Areas\Website\Views\Gallery\_PartialGallerySlider.cshtml" />
+    <Content Include="Areas\Website\Views\Shared\_PartialGallerySlider.cshtml" />
     <Content Include="Areas\Website\Views\Gallery\_PartialGalleryDetail.cshtml" />
     <Content Include="Areas\Website\Views\Gallery\Index.cshtml" />
     <Content Include="Areas\Website\Views\Gallery\_PartialPreviousGalleryList.cshtml" />
@@ -375,6 +375,7 @@
     <Content Include="Areas\Admin\Views\PhotoGallery\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PhotoGallery\_PartialAlbumList.cshtml" />
     <Content Include="Areas\Admin\Views\PhotoGallery\_PartialDeletePhotoAlbum.cshtml" />
+    <Content Include="Areas\Website\Views\Home\PhotoGallery.cshtml" />
     <None Include="Properties\PublishProfiles\Zhinous.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="images\logo.jpg" />

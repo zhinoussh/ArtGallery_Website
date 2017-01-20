@@ -228,9 +228,7 @@ $(document).on('click', '#btn-detail-gallery', function () {
 
 $(document).on('click', '#btn_remove_image', function () {
 
-    var img = $('#img_path').val();
-
-    $.get("/Admin/ArtGallery/DeleteImage?img_path=" + img, function (result) {
+    $.get("/Admin/ArtGallery/DeleteImage?img_path=" + $(this).data('img'), function (result) {
         $("#modal_container").find(".modal-content").html(result);
         $("#modal_container").modal('show');
     });
@@ -243,8 +241,7 @@ function SuccessAjax_DeleteImage(result) {
 
 $(document).on('click', '#btn_zoom_image', function () {
 
-    var img = $('#img_path').val();
-    $.get("/Admin/ArtGallery/Get_ZoomImage?img_path=" + img, function (result) {
+    $.get("/Admin/ArtGallery/Get_ZoomImage?img_path=" + $(this).data('img'), function (result) {
         $("#modal_container").html(result);
         $("#modal_container").modal('show');
     });
@@ -252,9 +249,7 @@ $(document).on('click', '#btn_zoom_image', function () {
 
 $(document).on('click', '#btn_remove_photo_album', function () {
 
-    var img = $('#img_path').val();
-
-    $.get("/Admin/PhotoGallery/DeleteImage?img_path=" + img, function (result) {
+    $.get("/Admin/PhotoGallery/DeleteImage?img_path=" + $(this).data('img'), function (result) {
         $("#modal_container").find(".modal-content").html(result);
         $("#modal_container").modal('show');
     });

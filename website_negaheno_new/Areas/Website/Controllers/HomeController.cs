@@ -36,5 +36,11 @@ namespace website_negaheno.Areas.Website.Controllers
 
             return View();
         }
+
+        public ActionResult PhotoGallery()
+        {
+            List<string> lst_photo_gallery=NegaheNoService.Get_PhotoGAllery();
+            return View(lst_photo_gallery);
+        }
     }
 }

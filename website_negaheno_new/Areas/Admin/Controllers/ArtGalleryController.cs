@@ -141,7 +141,8 @@ namespace website_negaheno.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Get_ZoomImage(string img_path)
         {
-            return PartialView("_PartialImage",img_path);
+            img_path = img_path + "?"  + DateTime.Now.ToString("ddMMyyyyhhmmsstt");
+            return PartialView("_PartialImage", img_path);
         }
     }
 }
