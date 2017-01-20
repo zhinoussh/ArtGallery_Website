@@ -251,4 +251,4 @@ paket-files/
 .idea/
 *.sln.iml
 
-**/website_negaheno_new/Upload/*
+website_negaheno_new/Upload/*
