@@ -266,7 +266,7 @@ namespace website_negaheno.DataAccessLayer
             string photo_name = DataLayer.get_lastAlbumPhoto_path();
             if (photo_name != "")
             {
-                file_name = photo_name.Substring(0, photo_name.LastIndexOf('.')) + ".jpg";
+                file_name = (Int32.Parse(photo_name.Substring(0, photo_name.LastIndexOf('.'))) + 1) + ".jpg";
             }
             else
                 file_name = "1.jpg";
@@ -379,6 +379,19 @@ namespace website_negaheno.DataAccessLayer
 
             return paged_list_gallery;
         }
+
+        public List<string> Get_PhotoGAllery()
+        {
+
+            List<string>  str_images=DataLayer.get_photoAlbum_images();
+            for (int i = 0; i < str_images.Count; i++)
+            {
+                str_images[i] = ("PhotoAlbum/" + str_images[i]);
+            }
+
+            return str_images;
+        }
+
       
         /**********private methods**********/
         private SearchPaginationViewModel Get_SearchPagination_Params(Controller ctrl)
