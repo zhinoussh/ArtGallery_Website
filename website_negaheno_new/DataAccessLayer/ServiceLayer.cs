@@ -357,11 +357,13 @@ namespace website_negaheno.DataAccessLayer
 
         public IPagedList<GalleryDetailViewModel> Get_PreviousGalleryList(int? page)
         {
-
             int currentPage = page.HasValue ? page.Value : 1;
+            string today = get_today(0);
 
             List<ArtGalleryViewModel> lst_gallery = DataLayer.Get_ArtGalleryList();
-            List<GalleryDetailViewModel> lst_gallery_detail = lst_gallery.Select(x => new GalleryDetailViewModel()
+            List<GalleryDetailViewModel> lst_gallery_detail = lst_gallery
+                .Where(x => today.CompareTo(x.fromDate.Substring(x.fromDate.Length - 10, 10))>0)
+                .Select(x => new GalleryDetailViewModel()
             {
                 GalleryId = x.GalleryId,
                 fa_title = x.fa_title.Length >= 20 ? x.fa_title.Substring(0, 20) + "..." : x.fa_title,
