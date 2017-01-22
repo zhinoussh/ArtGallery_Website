@@ -321,7 +321,7 @@ namespace website_negaheno.DataAccessLayer
             if (next_week_gallery != null)
                 lst_gallery.Add(next_week_gallery);
 
-            if (next_week_gallery != null)
+            if (next_2week_gallery != null)
                 lst_gallery.Add(next_2week_gallery);
 
             if (next_3week_gallery != null)
