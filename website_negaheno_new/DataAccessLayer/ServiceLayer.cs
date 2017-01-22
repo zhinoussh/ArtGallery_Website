@@ -315,17 +315,10 @@ namespace website_negaheno.DataAccessLayer
 
             List<ArtGalleryViewModel> lst_gallery = new List<ArtGalleryViewModel>();
 
-            if (week_gallery != null)
-                lst_gallery.Add(week_gallery);
-
-            if (next_week_gallery != null)
-                lst_gallery.Add(next_week_gallery);
-
-            if (next_2week_gallery != null)
-                lst_gallery.Add(next_2week_gallery);
-
-            if (next_3week_gallery != null)
-                lst_gallery.Add(next_3week_gallery);
+            lst_gallery.Add(week_gallery);
+            lst_gallery.Add(next_week_gallery);
+            lst_gallery.Add(next_2week_gallery);
+            lst_gallery.Add(next_3week_gallery);
 
             HomePageViewModel vm_page = new HomePageViewModel();
             vm_page.lst_current_gallery = lst_gallery;

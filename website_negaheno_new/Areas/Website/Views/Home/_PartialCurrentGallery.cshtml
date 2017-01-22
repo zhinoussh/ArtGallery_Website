@@ -8,43 +8,57 @@
         <div class="media">
             <div class="parrent pull-left">
                 <ul class="nav nav-tabs nav-stacked">
-                    <li class="active"><a href="#tab1" data-toggle="tab" class="analistic-01">برنامه هفته جاری</a></li>
-                    <li><a href="#tab2" data-toggle="tab" class="analistic-02">برنامه هفته آینده</a></li>
-                    <li class=""><a href="#tab3" data-toggle="tab" class="tehnical">برنامه دو هفته بعدی</a></li>
-                    <li class=""><a href="#tab4" data-toggle="tab" class="tehnical">برنامه سه هفته بعدی</a></li>
+                    <li class="active"><a href="#tab1" data-toggle="tab">برنامه هفته جاری</a></li>
+                    <li><a href="#tab2" data-toggle="tab">برنامه هفته آینده</a></li>
+                    <li><a href="#tab3" data-toggle="tab">برنامه دو هفته بعدی</a></li>
+                    <li><a href="#tab4" data-toggle="tab" >برنامه سه هفته بعدی</a></li>
                 </ul>
             </div>
             <div class="parrent media-body">
-               
-                <div class="tab-content">
-                @if (Model != null && Model.Count>0)
-                {
-                    for (int i = 0; i < Model.Count; i++)
-                    {
-                        <div class='@String.Concat("tab-pane fade ", i==0 ? " in active": "" )' id='@String.Concat("tab",i+1)'>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img class="img-responsive gallery_img" src='@String.Concat("/Upload/gallery_", Model[i].GalleryId, "/poster.jpg")'
-                                         onerror='this.onerror=null;this.src="/images/art1.png";'>
-                                </div>
-                                <div class="media-body">
-                                    <h2>
-                                        @Html.ActionLink(Model[i].fa_title, "GalleryDetail", "Gallery"
-                                    , new { area = "Website", id = Model[i].GalleryId }, null)
-                                    </h2>
-                                    <h3>
-                                        روزهای بازدید: @Model[i].fromDate تا @Model[i].toDate
-                                        <br />
-                                        ساعات بازدید: @Model[i].fromHour تا @Model[i].toHour
-                                    </h3>
-                                    <p>@Model[i].description</p>
-                                </div>
-                            </div>
-                        </div>
-                    }
 
-                }
-                </div> <!--/.tab-content-->
+                <div class="tab-content">
+                                        @if (Model != null)
+                    {
+                        for (int i = 0; i < Model.Count; i++)
+                        {
+                            if (Model[i] != null)
+                            {
+                                <div class='@String.Concat("tab-pane fade",i==0 ? " in active ": "")' id='@String.Concat("tab",i+1)'>
+                                    <div class="media">
+                                        <div class="pull-left">
+                                            <img class="img-responsive gallery_img" src='@String.Concat("/Upload/gallery_", Model[i].GalleryId, "/poster.jpg")'
+                                                 onerror='this.onerror=null;this.src="/images/art1.png";'>
+                                        </div>
+                                        <div class="media-body">
+                                            <h2>
+                                                @Html.ActionLink(Model[i].fa_title, "GalleryDetail", "Gallery"
+                                    , new { area = "Website", id = Model[i].GalleryId }, null)
+                                            </h2>
+                                            <h3>
+                                                روزهای بازدید: @Model[i].fromDate تا @Model[i].toDate
+                                                <br />
+                                                ساعات بازدید: @Model[i].fromHour تا @Model[i].toHour
+                                            </h3>
+                                            <p>@Model[i].description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class='@String.Concat("tab-pane fade",i==0 ? " in active ": "")' id='@String.Concat("tab",i+1)'>
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h2>برنامه ای موجود نیست</h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                        }
+
+                    }
+                                </div> <!--/.tab-content-->
             </div> <!--/.media-body-->
         </div> <!--/.media-->
     </div><!--/.tab-wrap-->
